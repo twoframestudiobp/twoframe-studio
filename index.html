@@ -45,7 +45,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+36-70-516-8766",
-        "email": "szabobarnabas@twoframe.hu",
+        "email": "twomotionstudiobp@gmail.com",
         "contactType": "Customer Service",
         "availableLanguage": "Hungarian"
       },
@@ -66,106 +66,718 @@
       gtag('js', new Date());
       gtag('config', 'G-MVV512ZC61');
     </script>
-    
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', 'Segoe UI', sans-serif; background: #0a0a0a; color: #ffffff; overflow-x: hidden; }
-        .bg-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.1; }
-        .bg-animation::before { content: ''; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, #d4af37 1px, transparent 1px); background-size: 50px 50px; animation: bgMove 20s linear infinite; }
-        @keyframes bgMove { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
-        
-        header { position: fixed; top: 0; left: 0; width: 100%; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); transition: all 0.3s ease; }
-        header.scrolled { padding: 10px 60px; }
-        header.scrolled .logo-container { width: 200px; height: 100px; }
-        .logo-container { width: 250px; height: 125px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 10px; padding: 10px; margin: 5px 0; }
-        .logo-container img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); transition: all 0.3s ease; }
-        .logo-container:hover { border-color: rgba(212, 175, 55, 0.8); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-        .logo-container:hover img { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5)); }
-        
-        nav { display: flex; gap: 40px; }
-        nav a { color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; position: relative; transition: color 0.3s ease; cursor: pointer; }
-        nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #d4af37, #f4d03f); transition: width 0.3s ease; }
-        nav a:hover { color: #d4af37; }
-        nav a:hover::after { width: 100%; }
-        
-        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 3000; position: relative; }
-        .hamburger span { width: 30px; height: 3px; background: #d4af37; border-radius: 3px; transition: all 0.3s ease; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(9px, 9px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(9px, -9px); }
-        
-        .mobile-nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.8); z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .mobile-nav-overlay.active { opacity: 1; visibility: visible; }
-        
-        .mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 400px; height: 100vh; background: linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.98)); backdrop-filter: blur(20px); z-index: 2500; padding: 100px 30px 40px; overflow-y: auto; transition: right 0.4s ease; border-left: 2px solid rgba(212, 175, 55, 0.3); box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5); }
-        .mobile-nav.active { right: 0; }
-        .mobile-nav a { display: block; color: #fff; text-decoration: none; font-size: 18px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 20px 15px; border-bottom: 1px solid rgba(212, 175, 55, 0.15); transition: all 0.3s ease; }
-        .mobile-nav a:hover { color: #d4af37; padding-left: 25px; background: rgba(212, 175, 55, 0.05); }
-        
-        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
-        .hero-content { z-index: 1; animation: fadeInUp 1s ease 0.3s both; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .hero h1 { font-size: 80px; font-weight: 700; background: linear-gradient(135deg, #ffffff, #d4af37, #f4d03f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; letter-spacing: 3px; }
-        .hero p { font-size: 24px; color: #cccccc; margin-bottom: 40px; animation: fadeInUp 1s ease 0.6s both; }
-        
-        .cta-button { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #d4af37, #b8860b); color: #0a0a0a; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
-        
-        .services { position: relative; padding: 120px 60px; z-index: 1; }
-        .section-title { text-align: center; font-size: 50px; margin-bottom: 80px; background: linear-gradient(135deg, #ffffff, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
-        .service-card { background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8)); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 50px 40px; text-align: center; transition: all 0.4s ease; }
-        .service-card:hover { transform: translateY(-10px); border-color: #d4af37; box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); }
-        .service-icon { font-size: 60px; margin-bottom: 30px; color: #d4af37; }
-        .service-card h3 { font-size: 28px; margin-bottom: 20px; color: #ffffff; }
-        .service-card p { color: #cccccc; line-height: 1.8; font-size: 16px; }
-        
-        footer { position: relative; padding: 60px 60px 30px; border-top: 1px solid rgba(212, 175, 55, 0.2); text-align: center; z-index: 1; }
-        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer-links a { color: #d4af37; text-decoration: none; font-size: 16px; transition: color 0.3s ease; cursor: pointer; }
-        .footer-links a:hover { color: #f4d03f; }
-        .copyright { color: #888888; font-size: 14px; }
-        
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); align-items: center; justify-content: center; padding: 20px; }
-        .modal.show { display: flex; }
-        .modal-content { position: relative; background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.95)); padding: 60px 40px; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 15px; width: 100%; max-width: 900px; max-height: 85vh; overflow-y: auto; }
-        .close-modal { position: absolute; top: 20px; right: 30px; color: #d4af37; font-size: 40px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; line-height: 1; }
-        .close-modal:hover { color: #f4d03f; transform: rotate(90deg); }
-        .modal-content h2 { color: #d4af37; font-size: 42px; margin-bottom: 30px; text-align: center; }
-        .modal-content h3 { color: #d4af37; font-size: 24px; margin-top: 30px; margin-bottom: 15px; }
-        .modal-content p { color: #cccccc; font-size: 18px; line-height: 1.8; margin-bottom: 20px; }
-        
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .partner-logo-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8)); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 40px 30px; text-align: center; transition: all 0.4s ease; cursor: pointer; }
-        .partner-logo-box:hover { transform: translateY(-10px); border-color: #d4af37; box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); }
-        .partner-logo-box img { width: 100%; height: 150px; object-fit: contain; margin-bottom: 20px; }
-        .partner-logo-box h3 { color: #d4af37; font-size: 20px; margin-top: 10px; }
-        
-        .partner-images-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .partner-image-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8)); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; }
-        .partner-image-box:hover { transform: scale(1.02); border-color: #d4af37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .partner-image-box img { width: 100%; height: 250px; object-fit: cover; }
-        
-        .contact-info { display: grid; gap: 25px; max-width: 500px; margin: 40px auto 0; }
-        .contact-item { display: flex; align-items: center; gap: 15px; }
-        .contact-item span { font-size: 24px; }
-        .contact-item strong { color: #ffffff; }
-        .contact-item a { color: #d4af37; text-decoration: none; transition: color 0.3s ease; }
-        .contact-item a:hover { color: #f4d03f; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #d4af37 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: bgMove 20s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: slideDown 0.8s ease;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 60px;
+        }
+
+        header.scrolled .logo-container {
+            width: 200px;
+            height: 100px;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .logo-container {
+            width: 250px;
+            height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+        }
+
+        /* Desktop Navigation */
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 3000;
+            position: relative;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.98));
+            backdrop-filter: blur(20px);
+            z-index: 2500;
+            padding: 100px 30px 40px;
+            overflow-y: auto;
+            transition: right 0.4s ease;
+            border-left: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:active {
+            color: #d4af37;
+            padding-left: 25px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .mobile-nav a:hover::before {
+            width: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.9s both;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }.cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            position: relative;
+            padding: 120px 60px;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.1));
+            transition: top 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            top: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            margin-bottom: 30px;
+            color: #d4af37;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            animation-delay: 0.5s;
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            animation-delay: 1s;
+        }
+
+        .service-card:nth-child(4) .service-icon {
+            animation-delay: 1.5s;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            padding: 60px 60px 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #f4d03f;
+        }
+
+        .copyright {
+            color: #888888;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.95));
+            padding: 60px 40px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #d4af37;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #f4d03f;
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            color: #d4af37;
+            font-size: 42px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            color: #d4af37;
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 25px;
+            max-width: 500px;
+            margin: 40px auto 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item span {
+            font-size: 24px;
+        }
+
+        .contact-item strong {
+            color: #ffffff;
+        }
+
+        .contact-item a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #f4d03f;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            .logo-container { width: 180px; height: 90px; }
-            nav { display: none; }
-            .hamburger { display: flex; }
-            .hero h1 { font-size: 40px; }
-            .services { padding: 80px 20px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .mobile-nav { width: 90%; }
+            header {
+                padding: 15px 20px;
+            }
+
+            header.scrolled {
+                padding: 10px 20px;
+            }
+
+            .logo-container {
+                width: 180px;
+                height: 90px;
+            }
+
+            header.scrolled .logo-container {
+                width: 150px;
+                height: 75px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 50px;
+            }
+
+            .services {
+                padding: 80px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .modal-content {
+                padding: 50px 25px;
+                max-height: 90vh;
+            }
+
+            .modal-content h2 {
+                font-size: 32px;
+            }
+
+            .modal-content h3 {
+                font-size: 20px;
+            }
+
+            .modal-content p {
+                font-size: 16px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 14px;
+            }
+
+            .mobile-nav {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+
+            .close-modal {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+
+            .mobile-nav {
+                width: 100%;
+                max-width: none;
+                padding: 100px 20px 40px;
+            }
         }
     </style>
-</head><body>
+</head>
+<body>
     <div class="bg-animation"></div>
+
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
     <header id="header">
@@ -179,7 +791,7 @@
             <a onclick="openModal('aboutModal')">Rólunk</a>
             <a onclick="openModal('contactModal')">Kapcsolat</a>
         </nav>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" aria-label="Menü megnyitása">
             <span></span>
             <span></span>
             <span></span>
@@ -210,27 +822,26 @@
             <article class="service-card">
                 <div class="service-icon" aria-hidden="true">🎬</div>
                 <h3>Reklámfilmek</h3>
-                <p>Professzionális videóprodukció a márka történetének életre keltésére.</p>
+                <p>Professzionális videóprodukció a márka történetének életre keltésére. Kreatív koncepcióról a végső vágásig.</p>
             </article>
             <article class="service-card">
                 <div class="service-icon" aria-hidden="true">📸</div>
                 <h3>Fotózások</h3>
-                <p>Luxus termékfotózás és brandépítő vizuális tartalom.</p>
+                <p>Luxus termékfotózás és brandépítő vizuális tartalom, amely kiemelkedik a tömegből.</p>
             </article>
             <article class="service-card">
                 <div class="service-icon" aria-hidden="true">💼</div>
                 <h3>Cégtanácsadás</h3>
-                <p>Stratégiai tanácsadás vállalkozása növekedéséhez.</p>
+                <p>Stratégiai tanácsadás vállalkozása növekedéséhez és piaci pozíciójának erősítéséhez.</p>
             </article>
             <article class="service-card">
                 <div class="service-icon" aria-hidden="true">📊</div>
                 <h3>Marketing Ügynökség</h3>
-                <p>360°-os marketing megoldások és kampánymenedzsment.</p>
+                <p>360°-os marketing megoldások: digitális stratégia, branding és kampánymenedzsment.</p>
             </article>
         </div>
     </section>
 
-    <!-- Portfolio Modal -->
     <div id="portfolioModal" class="modal" role="dialog" aria-labelledby="portfolioTitle" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('portfolioModal')" aria-label="Bezárás">&times;</span>
@@ -255,7 +866,25 @@
         </div>
     </div>
 
-    <!-- Partnereink Modal -->
+    <div id="aboutModal" class="modal" role="dialog" aria-labelledby="aboutTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('aboutModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="aboutTitle">Rólunk</h2>
+            <p style="font-size: 20px; color: #d4af37; text-align: center; margin-bottom: 30px; font-weight: 600;">
+                A TwoFrame Studio - Fiatal tehetség, profi megoldások
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Két 17 éves srác vagyunk, akik komoly tudással és profi eszközökkel dolgoznak. 
+                Szenvedélyünk a vizuális művészet és a marketing, ami megmutatkozik minden projektünkben.
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Az, hogy fiatalok vagyunk, nem akadály - előny. Friss szemlélettel, modern trendekkel és 
+                határtalan kreativitással közelítünk minden feladathoz. Professzionális felszerelésünk és 
+                elkötelezettségünk garantálja, hogy ügyfeleink a legjobb minőséget kapják.
+            </p>
+        </div>
+    </div>
+
     <div id="partnersModal" class="modal" role="dialog" aria-labelledby="partnersTitle" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('partnersModal')" aria-label="Bezárás">&times;</span>
@@ -305,144 +934,11 @@
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
-                <a href="mailto:szabobarnabas@twoframe.hu" class="cta-button">Legyünk partnerek</a>
-            </div>
-        </div>
-    </div><!-- Cég 1 Modal -->
-    <div id="ceg1Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg1Modal')">&times;</span>
-            <h2>Cég 1 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg1-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg1-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg1-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
+                <a href="mailto:twomotionstudiobp@gmail.com" class="cta-button">Legyünk partnerek</a>
             </div>
         </div>
     </div>
 
-    <!-- Cég 2 Modal -->
-    <div id="ceg2Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg2Modal')">&times;</span>
-            <h2>Cég 2 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg2-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg2-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg2-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cég 3 Modal -->
-    <div id="ceg3Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg3Modal')">&times;</span>
-            <h2>Cég 3 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg3-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg3-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg3-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cég 4 Modal -->
-    <div id="ceg4Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg4Modal')">&times;</span>
-            <h2>Cég 4 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg4-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg4-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg4-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cég 5 Modal -->
-    <div id="ceg5Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg5Modal')">&times;</span>
-            <h2>Cég 5 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg5-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg5-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg5-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cég 6 Modal -->
-    <div id="ceg6Modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('ceg6Modal')">&times;</span>
-            <h2>Cég 6 - Projektek</h2>
-            <div class="partner-images-grid">
-                <div class="partner-image-box">
-                    <img src="ceg6-projekt-1.jpg" alt="Projekt 1" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg6-projekt-2.jpg" alt="Projekt 2" onerror="this.parentElement.style.display='none'">
-                </div>
-                <div class="partner-image-box">
-                    <img src="ceg6-projekt-3.jpg" alt="Projekt 3" onerror="this.parentElement.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Rólunk Modal -->
-    <div id="aboutModal" class="modal" role="dialog" aria-labelledby="aboutTitle" aria-modal="true">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')" aria-label="Bezárás">&times;</span>
-            <h2 id="aboutTitle">Rólunk</h2>
-            <p style="font-size: 20px; color: #d4af37; text-align: center; margin-bottom: 30px; font-weight: 600;">
-                A TwoFrame Studio - Fiatal tehetség, profi megoldások
-            </p>
-            <p style="text-align: center; font-size: 18px;">
-                Két 17 éves srác vagyunk, akik komoly tudással és profi eszközökkel dolgoznak. 
-                Szenvedélyünk a vizuális művészet és a marketing, ami megmutatkozik minden projektünkben.
-            </p>
-            <p style="text-align: center; font-size: 18px;">
-                Az, hogy fiatalok vagyunk, nem akadály - előny. Friss szemlélettel, modern trendekkel és 
-                határtalan kreativitással közelítünk minden feladathoz. Professzionális felszerelésünk és 
-                elkötelezettségünk garantálja, hogy ügyfeleink a legjobb minőséget kapják.
-            </p>
-        </div>
-    </div>
-
-    <!-- Kapcsolat Modal -->
     <div id="contactModal" class="modal" role="dialog" aria-labelledby="contactTitle" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('contactModal')" aria-label="Bezárás">&times;</span>
@@ -455,8 +951,7 @@
                     <span aria-hidden="true">📧</span>
                     <div>
                         <strong>Email:</strong><br>
-                        <a href="mailto:szabobarnabas@twoframe.hu">szabobarnabas@twoframe.hu</a><br>
-                        <a href="mailto:antalbanyikkristof@twoframe.hu">antalbanyikkristof@twoframe.hu</a>
+                        <a href="mailto:twomotionstudiobp@gmail.com">twomotionstudiobp@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -475,10 +970,11 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px;">
-                <a href="mailto:szabobarnabas@twoframe.hu" class="cta-button">Ingyenes Konzultáció</a>
+                <a href="mailto:twomotionstudiobp@gmail.com" class="cta-button">Ingyenes Konzultáció</a>
             </div>
         </div>
-    </div><!-- ÁSZF Modal -->
+    </div>
+
     <div id="termsModal" class="modal" role="dialog" aria-labelledby="termsTitle" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('termsModal')" aria-label="Bezárás">&times;</span>
@@ -488,7 +984,7 @@
             <p>
                 Szolgáltató neve: TwoFrame Studio<br>
                 Székhely: Budapest, Magyarország<br>
-                Email: szabobarnabas@twoframe.hu<br>
+                Email: twomotionstudiobp@gmail.com<br>
                 Telefon: +36 70 516 8766
             </p>
 
@@ -548,7 +1044,6 @@
         </div>
     </div>
 
-    <!-- Adatvédelem Modal -->
     <div id="privacyModal" class="modal" role="dialog" aria-labelledby="privacyTitle" aria-modal="true">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacyModal')" aria-label="Bezárás">&times;</span>
@@ -616,18 +1111,17 @@
             <h3>9. Kapcsolat és panaszkezelés</h3>
             <p>
                 Adatvédelmi kérdéseivel kapcsolatban keressen minket:<br>
-                Email: szabobarnabas@twoframe.hu<br>
+                Email: twomotionstudiobp@gmail.com<br>
                 Telefon: +36 70 516 8766
             </p>
 
             <p style="margin-top: 40px; font-size: 16px; color: #888;">
                 Utolsó frissítés: 2025. január 1.<br>
-                Kérdés esetén: szabobarnabas@twoframe.hu
+                Kérdés esetén: twomotionstudiobp@gmail.com
             </p>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -639,14 +1133,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        const header = document.getElementById('header');
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-
         // Header scroll effect
+        const header = document.getElementById('header');
+        
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
                 header.classList.add('scrolled');
@@ -655,12 +1145,18 @@
             }
         });
 
-        // Mobile menu toggle
+        // Mobile menu elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+        // Toggle mobile menu
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleMobileNav();
         });
 
+        // Close on overlay click
         mobileNavOverlay.addEventListener('click', () => {
             closeMobileNav();
         });
@@ -669,7 +1165,12 @@
             hamburger.classList.toggle('active');
             mobileNav.classList.toggle('active');
             mobileNavOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+            
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         }
 
         function closeMobileNav() {
@@ -693,14 +1194,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        function openPartnerModal(modalId) {
-            closeModal('partnersModal');
-            setTimeout(() => {
-                openModal(modalId);
-            }, 300);
-        }
-
-        // Close modal on outside click
+        // Close modal when clicking outside
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
@@ -717,10 +1211,35 @@
                 if (target) {
                     closeMobileNav();
                     setTimeout(() => {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }, 300);
                 }
             });
+        });
+
+        // Animate service cards on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
         });
     </script>
 </body>
