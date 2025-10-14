@@ -3,7 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoFrame Studio - Brand & Marketing Ügynökség</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás</title>
+    <meta name="title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás">
+    <meta name="description" content="Professzionális brand és marketing ügynökség Budapesten. Prémium reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások. Kérjen ingyenes konzultációt!">
+    <meta name="keywords" content="marketing ügynökség budapest, reklámfilm készítés, professzionális fotózás, brand ügynökség, cégtanácsadás, video marketing, social media marketing, luxus marketing, prémium fotózás budapest, céges videó készítés">
+    <meta name="author" content="TwoFrame Studio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://twoframe.hu/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://twoframe.hu/">
+    <meta property="og:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="og:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.">
+    <meta property="og:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+    <meta property="og:locale" content="hu_HU">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://twoframe.hu/">
+    <meta property="twitter:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="twitter:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás.">
+    <meta property="twitter:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TwoFrame Studio",
+      "url": "https://twoframe.hu",
+      "logo": "https://twoframe.hu/TwoFrame%20(2).png",
+      "description": "Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Budapest",
+        "addressCountry": "HU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+36-70-516-8766",
+        "email": "twomotionstudiobp@gmail.com",
+        "contactType": "Customer Service",
+        "availableLanguage": "Hungarian"
+      },
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Hungary"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Google Analytics - Cseréld le a G-XXXXXXXXXX-et a saját tracking ID-dre -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
     <style>
         * {
             margin: 0;
@@ -722,7 +787,7 @@
 
     <header id="header">
         <div class="logo-container">
-            <img src="TwoFrame (2).png" alt="TwoFrame Studio Logo">
+            <img src="TwoFrame (2).png" alt="TwoFrame Studio logó - Brand és marketing ügynökség Budapest">
         </div>
         <nav>
             <a href="#services">Szolgáltatások</a>
@@ -731,14 +796,14 @@
             <a onclick="openModal('aboutModal')">Rólunk</a>
             <a onclick="openModal('contactModal')">Kapcsolat</a>
         </nav>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" aria-label="Menü megnyitása">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </header>
 
-    <div class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobil navigáció">
         <a href="#services" onclick="closeMobileNav()">Szolgáltatások</a>
         <a onclick="openModal('portfolioModal'); closeMobileNav()">Portfolio</a>
         <a onclick="openModal('partnersModal'); closeMobileNav()">Partnereink</a>
@@ -746,7 +811,7 @@
         <a onclick="openModal('termsModal'); closeMobileNav()">ÁSZF</a>
         <a onclick="openModal('privacyModal'); closeMobileNav()">Adatvédelem</a>
         <a onclick="openModal('contactModal'); closeMobileNav()">Kapcsolat</a>
-    </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -759,59 +824,59 @@
     <section id="services" class="services">
         <h2 class="section-title">Szolgáltatásaink</h2>
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎬</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🎬</div>
                 <h3>Reklámfilmek</h3>
                 <p>Professzionális videóprodukció a márka történetének életre keltésére. Kreatív koncepcióról a végső vágásig.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📸</div>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📸</div>
                 <h3>Fotózások</h3>
                 <p>Luxus termékfotózás és brandépítő vizuális tartalom, amely kiemelkedik a tömegből.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💼</div>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">💼</div>
                 <h3>Cégtanácsadás</h3>
                 <p>Stratégiai tanácsadás vállalkozása növekedéséhez és piaci pozíciójának erősítéséhez.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📊</div>
                 <h3>Marketing Ügynökség</h3>
                 <p>360°-os marketing megoldások: digitális stratégia, branding és kampánymenedzsment.</p>
-            </div>
+            </article>
         </div>
     </section>
 
     <!-- Portfolio Modal -->
-    <div id="portfolioModal" class="modal">
+    <div id="portfolioModal" class="modal" role="dialog" aria-labelledby="portfolioTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('portfolioModal')">&times;</span>
-            <h2>Portfolio</h2>
+            <span class="close-modal" onclick="closeModal('portfolioModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="portfolioTitle">Portfolio</h2>
             <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">
                 Munkáink beszélnek magukért. Prémium brandek, kreatív kampányok és lenyűgöző vizuális tartalom.
             </p>
             <div class="portfolio-grid">
-                <div class="service-card">
+                <article class="service-card">
                     <h3 style="color: #d4af37; margin-bottom: 15px;">Luxus Autómárka</h3>
                     <p>Teljes körű kampány prémium autómárka bevezetésére</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <h3 style="color: #d4af37; margin-bottom: 15px;">Divat Fotózás</h3>
                     <p>Haute couture kollekció vizuális megjelenítése</p>
-                </div>
-                <div class="service-card">
+                </article>
+                <article class="service-card">
                     <h3 style="color: #d4af37; margin-bottom: 15px;">Tech Startup</h3>
                     <p>Brand identity és marketing stratégia kidolgozása</p>
-                </div>
+                </article>
             </div>
         </div>
     </div>
 
     <!-- About Modal -->
-    <div id="aboutModal" class="modal">
+    <div id="aboutModal" class="modal" role="dialog" aria-labelledby="aboutTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
-            <h2>Rólunk</h2>
+            <span class="close-modal" onclick="closeModal('aboutModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="aboutTitle">Rólunk</h2>
             <p style="font-size: 20px; color: #d4af37; text-align: center; margin-bottom: 30px; font-weight: 600;">
                 A TwoFrame Studio - Fiatal tehetség, profi megoldások
             </p>
@@ -828,10 +893,10 @@
     </div>
 
     <!-- Partners Modal -->
-    <div id="partnersModal" class="modal">
+    <div id="partnersModal" class="modal" role="dialog" aria-labelledby="partnersTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('partnersModal')">&times;</span>
-            <h2>Partnereink</h2>
+            <span class="close-modal" onclick="closeModal('partnersModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="partnersTitle">Partnereink</h2>
             <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
                 Büszkék vagyunk arra, hogy kiváló cégekkel dolgozhatunk együtt
             </p>
@@ -841,41 +906,41 @@
             </p>
             
             <div class="portfolio-grid">
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">🚗</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🚗</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Autóipar</h3>
                     <p style="font-size: 15px;">Prémium autómárkák kampányai</p>
-                </div>
+                </article>
                 
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">👗</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">👗</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Divat & Luxus</h3>
                     <p style="font-size: 15px;">Haute couture és fashion brandek</p>
-                </div>
+                </article>
                 
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">💻</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💻</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Tech & Startup</h3>
                     <p style="font-size: 15px;">Innovatív technológiai cégek</p>
-                </div>
+                </article>
                 
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">🏢</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🏢</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ingatlan</h3>
                     <p style="font-size: 15px;">Prémium ingatlanfejlesztők</p>
-                </div>
+                </article>
                 
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">🍽️</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🍽️</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Gasztronómia</h3>
                     <p style="font-size: 15px;">Fine dining éttermek</p>
-                </div>
+                </article>
                 
-                <div class="service-card" style="padding: 40px 30px;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">💎</div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💎</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ékszerek & Órák</h3>
                     <p style="font-size: 15px;">Luxury ékszer brandek</p>
-                </div>
+                </article>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
@@ -885,30 +950,30 @@
     </div>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-labelledby="contactTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
-            <h2>Kapcsolat</h2>
+            <span class="close-modal" onclick="closeModal('contactModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="contactTitle">Kapcsolat</h2>
             <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
                 Készen áll arra, hogy felemelje márkáját a következő szintre?
             </p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span>📧</span>
+                    <span aria-hidden="true">📧</span>
                     <div>
                         <strong>Email:</strong><br>
                         <a href="mailto:twomotionstudiobp@gmail.com">twomotionstudiobp@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span>📱</span>
+                    <span aria-hidden="true">📱</span>
                     <div>
                         <strong>Telefon:</strong><br>
                         <a href="tel:+36705168766">+36 70 516 8766</a>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span>📍</span>
+                    <span aria-hidden="true">📍</span>
                     <div>
                         <strong>Cím:</strong><br>
                         <span style="color: #cccccc;">Budapest, Magyarország</span>
@@ -922,10 +987,10 @@
     </div>
 
     <!-- Terms Modal (ÁSZF) -->
-    <div id="termsModal" class="modal">
+    <div id="termsModal" class="modal" role="dialog" aria-labelledby="termsTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2>Általános Szerződési Feltételek</h2>
+            <span class="close-modal" onclick="closeModal('termsModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="termsTitle">Általános Szerződési Feltételek</h2>
             
             <h3>1. A szolgáltató adatai</h3>
             <p>
@@ -992,10 +1057,10 @@
     </div>
 
     <!-- Privacy Modal (Adatvédelem) -->
-    <div id="privacyModal" class="modal">
+    <div id="privacyModal" class="modal" role="dialog" aria-labelledby="privacyTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Adatvédelmi Tájékoztató</h2>
+            <span class="close-modal" onclick="closeModal('privacyModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="privacyTitle">Adatvédelmi Tájékoztató</h2>
             
             <h3>1. Bevezetés</h3>
             <p>
