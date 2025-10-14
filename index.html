@@ -3,8 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TwoFrame Studio - Brand & Marketing Ügynökség Budapest</title>
-    <meta name="description" content="Professzionális brand és marketing ügynökség Budapesten. Prémium reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.">
+    
+    <!-- Primary Meta Tags -->
+    <title>TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás</title>
+    <meta name="title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás">
+    <meta name="description" content="Professzionális brand és marketing ügynökség Budapesten. Prémium reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások. Kérjen ingyenes konzultációt!">
+    <meta name="keywords" content="marketing ügynökség budapest, reklámfilm készítés, professzionális fotózás, brand ügynökség, cégtanácsadás, video marketing, social media marketing, luxus marketing, prémium fotózás budapest, céges videó készítés">
+    <meta name="author" content="TwoFrame Studio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://twoframe.hu/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://twoframe.hu/">
+    <meta property="og:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="og:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.">
+    <meta property="og:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+    <meta property="og:locale" content="hu_HU">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://twoframe.hu/">
+    <meta property="twitter:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="twitter:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás.">
+    <meta property="twitter:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TwoFrame Studio",
+      "url": "https://twoframe.hu",
+      "logo": "https://twoframe.hu/TwoFrame%20(2).png",
+      "description": "Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Budapest",
+        "addressCountry": "HU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+36-70-516-8766",
+        "email": "szabobarnabas@twoframe.hu",
+        "contactType": "Customer Service",
+        "availableLanguage": "Hungarian"
+      },
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Hungary"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVV512ZC61"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MVV512ZC61');
+    </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,8 +77,9 @@
         header { position: fixed; top: 0; left: 0; width: 100%; padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); transition: all 0.3s ease; }
         header.scrolled { padding: 10px 60px; }
         header.scrolled .logo-container { width: 200px; height: 100px; }
-        .logo-container { width: 250px; height: 125px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .logo-container { width: 250px; height: 125px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 10px; padding: 10px; margin: 5px 0; }
         .logo-container img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3)); transition: all 0.3s ease; }
+        .logo-container:hover { border-color: rgba(212, 175, 55, 0.8); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
         .logo-container:hover img { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5)); }
         
         nav { display: flex; gap: 40px; }
@@ -108,7 +170,7 @@
 
     <header id="header">
         <div class="logo-container">
-            <img src="TwoFrame (2).png" alt="TwoFrame Studio">
+            <img src="TwoFrame (2).png" alt="TwoFrame Studio logó - Brand és marketing ügynökség Budapest">
         </div>
         <nav>
             <a href="#services">Szolgáltatások</a>
@@ -124,7 +186,7 @@
         </div>
     </header>
 
-    <nav class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobil navigáció">
         <a href="#services" onclick="closeMobileNav()">Szolgáltatások</a>
         <a onclick="openModal('portfolioModal'); closeMobileNav()">Portfolio</a>
         <a onclick="openModal('partnersModal'); closeMobileNav()">Partnereink</a>
@@ -146,22 +208,22 @@
         <h2 class="section-title">Szolgáltatásaink</h2>
         <div class="services-grid">
             <article class="service-card">
-                <div class="service-icon">🎬</div>
+                <div class="service-icon" aria-hidden="true">🎬</div>
                 <h3>Reklámfilmek</h3>
                 <p>Professzionális videóprodukció a márka történetének életre keltésére.</p>
             </article>
             <article class="service-card">
-                <div class="service-icon">📸</div>
+                <div class="service-icon" aria-hidden="true">📸</div>
                 <h3>Fotózások</h3>
                 <p>Luxus termékfotózás és brandépítő vizuális tartalom.</p>
             </article>
             <article class="service-card">
-                <div class="service-icon">💼</div>
+                <div class="service-icon" aria-hidden="true">💼</div>
                 <h3>Cégtanácsadás</h3>
                 <p>Stratégiai tanácsadás vállalkozása növekedéséhez.</p>
             </article>
             <article class="service-card">
-                <div class="service-icon">📊</div>
+                <div class="service-icon" aria-hidden="true">📊</div>
                 <h3>Marketing Ügynökség</h3>
                 <p>360°-os marketing megoldások és kampánymenedzsment.</p>
             </article>
@@ -169,45 +231,81 @@
     </section>
 
     <!-- Portfolio Modal -->
-    <div id="portfolioModal" class="modal">
+    <div id="portfolioModal" class="modal" role="dialog" aria-labelledby="portfolioTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('portfolioModal')">&times;</span>
-            <h2>Portfolio</h2>
-            <p style="text-align: center;">Munkáink beszélnek magukért. Prémium brandek, kreatív kampányok.</p>
+            <span class="close-modal" onclick="closeModal('portfolioModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="portfolioTitle">Portfolio</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">
+                Munkáink beszélnek magukért. Prémium brandek, kreatív kampányok és lenyűgöző vizuális tartalom.
+            </p>
+            <div class="portfolio-grid">
+                <article class="service-card">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Luxus Autómárka</h3>
+                    <p>Teljes körű kampány prémium autómárka bevezetésére</p>
+                </article>
+                <article class="service-card">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Divat Fotózás</h3>
+                    <p>Haute couture kollekció vizuális megjelenítése</p>
+                </article>
+                <article class="service-card">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Tech Startup</h3>
+                    <p>Brand identity és marketing stratégia kidolgozása</p>
+                </article>
+            </div>
         </div>
     </div>
 
     <!-- Partnereink Modal -->
-    <div id="partnersModal" class="modal">
+    <div id="partnersModal" class="modal" role="dialog" aria-labelledby="partnersTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('partnersModal')">&times;</span>
-            <h2>Partnereink</h2>
-            <p style="text-align: center; color: #d4af37; margin-bottom: 40px;">Büszkék vagyunk partnereinkre</p>
+            <span class="close-modal" onclick="closeModal('partnersModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="partnersTitle">Partnereink</h2>
+            <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
+                Büszkék vagyunk arra, hogy kiváló cégekkel dolgozhatunk együtt
+            </p>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 60px;">
+                Partnereink között szerepelnek vezető brandek és innovatív vállalkozások, akik megbíznak 
+                szakértelmünkben és kreativitásunkban.
+            </p>
+            
             <div class="portfolio-grid">
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg1Modal')">
-                    <img src="ceg1-logo.png" alt="Cég 1" onerror="this.style.display='none'">
-                    <h3>Cég 1</h3>
-                </div>
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg2Modal')">
-                    <img src="ceg2-logo.png" alt="Cég 2" onerror="this.style.display='none'">
-                    <h3>Cég 2</h3>
-                </div>
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg3Modal')">
-                    <img src="ceg3-logo.png" alt="Cég 3" onerror="this.style.display='none'">
-                    <h3>Cég 3</h3>
-                </div>
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg4Modal')">
-                    <img src="ceg4-logo.png" alt="Cég 4" onerror="this.style.display='none'">
-                    <h3>Cég 4</h3>
-                </div>
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg5Modal')">
-                    <img src="ceg5-logo.png" alt="Cég 5" onerror="this.style.display='none'">
-                    <h3>Cég 5</h3>
-                </div>
-                <div class="partner-logo-box" onclick="openPartnerModal('ceg6Modal')">
-                    <img src="ceg6-logo.png" alt="Cég 6" onerror="this.style.display='none'">
-                    <h3>Cég 6</h3>
-                </div>
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🚗</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Autóipar</h3>
+                    <p style="font-size: 15px;">Prémium autómárkák kampányai</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">👗</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Divat & Luxus</h3>
+                    <p style="font-size: 15px;">Haute couture és fashion brandek</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💻</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Tech & Startup</h3>
+                    <p style="font-size: 15px;">Innovatív technológiai cégek</p>
+                </article><article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🏢</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ingatlan</h3>
+                    <p style="font-size: 15px;">Prémium ingatlanfejlesztők</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🍽️</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Gasztronómia</h3>
+                    <p style="font-size: 15px;">Fine dining éttermek</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💎</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ékszerek & Órák</h3>
+                    <p style="font-size: 15px;">Luxury ékszer brandek</p>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="mailto:szabobarnabas@twoframe.hu" class="cta-button">Legyünk partnerek</a>
             </div>
         </div>
     </div><!-- Cég 1 Modal -->
@@ -325,14 +423,19 @@
     </div>
 
     <!-- Rólunk Modal -->
-    <div id="aboutModal" class="modal">
+    <div id="aboutModal" class="modal" role="dialog" aria-labelledby="aboutTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
-            <h2>Rólunk</h2>
-            <p style="text-align: center; color: #d4af37; font-weight: 600;">Fiatal tehetség, profi megoldások</p>
-            <p style="text-align: center;">Két 17 éves srác vagyunk, akik komoly tudással és profi eszközökkel dolgoznak. Szenvedélyünk a vizuális művészet és a marketing.</p>
-             <p style="text-align: center; font-size: 18px;">
-                Az, hogy fiatalok vagyunk, nem akadály, előny. Friss szemlélettel, modern trendekkel és 
+            <span class="close-modal" onclick="closeModal('aboutModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="aboutTitle">Rólunk</h2>
+            <p style="font-size: 20px; color: #d4af37; text-align: center; margin-bottom: 30px; font-weight: 600;">
+                A TwoFrame Studio - Fiatal tehetség, profi megoldások
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Két 17 éves srác vagyunk, akik komoly tudással és profi eszközökkel dolgoznak. 
+                Szenvedélyünk a vizuális művészet és a marketing, ami megmutatkozik minden projektünkben.
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Az, hogy fiatalok vagyunk, nem akadály - előny. Friss szemlélettel, modern trendekkel és 
                 határtalan kreativitással közelítünk minden feladathoz. Professzionális felszerelésünk és 
                 elkötelezettségünk garantálja, hogy ügyfeleink a legjobb minőséget kapják.
             </p>
@@ -340,14 +443,16 @@
     </div>
 
     <!-- Kapcsolat Modal -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-labelledby="contactTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
-            <h2>Kapcsolat</h2>
-            <p style="text-align: center; color: #d4af37; font-weight: 600;">Kész arra, hogy felemelje márkáját?</p>
+            <span class="close-modal" onclick="closeModal('contactModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="contactTitle">Kapcsolat</h2>
+            <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
+                Készen áll arra, hogy felemelje márkáját a következő szintre?
+            </p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span>📧</span>
+                    <span aria-hidden="true">📧</span>
                     <div>
                         <strong>Email:</strong><br>
                         <a href="mailto:szabobarnabas@twoframe.hu">szabobarnabas@twoframe.hu</a><br>
@@ -355,7 +460,14 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span>📍</span>
+                    <span aria-hidden="true">📱</span>
+                    <div>
+                        <strong>Telefon:</strong><br>
+                        <a href="tel:+36705168766">+36 70 516 8766</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span aria-hidden="true">📍</span>
                     <div>
                         <strong>Cím:</strong><br>
                         <span style="color: #cccccc;">Budapest, Magyarország</span>
@@ -367,77 +479,151 @@
             </div>
         </div>
     </div><!-- ÁSZF Modal -->
-    <div id="termsModal" class="modal">
+    <div id="termsModal" class="modal" role="dialog" aria-labelledby="termsTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2>Általános Szerződési Feltételek</h2>
+            <span class="close-modal" onclick="closeModal('termsModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="termsTitle">Általános Szerződési Feltételek</h2>
             
-            <h3>1. Szolgáltató adatai</h3>
-            <p>Név: TwoFrame Studio<br>Székhely: Budapest, Magyarország<br>Email: szabobarnabas@twoframe.hu</p>
-            
+            <h3>1. A szolgáltató adatai</h3>
+            <p>
+                Szolgáltató neve: TwoFrame Studio<br>
+                Székhely: Budapest, Magyarország<br>
+                Email: szabobarnabas@twoframe.hu<br>
+                Telefon: +36 70 516 8766
+            </p>
+
             <h3>2. Szolgáltatások</h3>
-            <p>A TwoFrame Studio professzionális marketing és vizuális tartalom szolgáltatásokat nyújt, beleértve:</p>
-            <p>• Reklámfilm készítés és videóprodukció<br>• Professzionális fotózások és vizuális tartalom készítés<br>• Cégtanácsadás és üzleti stratégia fejlesztés<br>• Marketing ügynökségi szolgáltatások és kampánymenedzsment</p>
-            
+            <p>
+                A TwoFrame Studio professzionális marketing és vizuális tartalom szolgáltatásokat nyújt, beleértve:
+            </p>
+            <p>
+                • Reklámfilm készítés és videóprodukció<br>
+                • Professzionális fotózások és vizuális tartalom készítés<br>
+                • Cégtanácsadás és üzleti stratégia fejlesztés<br>
+                • Marketing ügynökségi szolgáltatások és kampánymenedzsment
+            </p>
+
             <h3>3. Szerződés létrejötte</h3>
-            <p>A szerződés az ügyfél megkeresését követően, írásbeli ajánlat és annak elfogadása után jön létre. A projekt részleteit egyedi szerződésben rögzítjük.</p>
-            
+            <p>
+                A szerződés az ügyfél megkeresését követően, írásbeli ajánlat és annak elfogadása után jön létre. 
+                A projekt részleteit egyedi szerződésben rögzítjük.
+            </p>
+
             <h3>4. Árak és fizetési feltételek</h3>
-            <p>A szolgáltatások díjazását egyedileg határozzuk meg. Általában 50% előleg a projekt indításakor, 50% a projekt átadásakor.</p>
-            
+            <p>
+                A szolgáltatások díjazását egyedileg határozzuk meg. Általában 50% előleg a projekt indításakor, 
+                50% a projekt átadásakor.
+            </p>
+
             <h3>5. Szerzői jogok</h3>
-            <p>Az elkészült anyagok szerzői jogai a TwoFrame Studio-t illetik meg. A teljes díj kifizetését követően az ügyfél korlátlan felhasználási jogot kap.</p>
-            
+            <p>
+                Az elkészült anyagok szerzői jogai a TwoFrame Studio-t illetik meg. A teljes díj kifizetését 
+                követően az ügyfél korlátlan felhasználási jogot kap.
+            </p>
+
             <h3>6. Módosítások és korrekciók</h3>
-            <p>Minden projekt tartalmaz 2 ingyenes korrekciós kört. További módosítások külön díjazást igényelnek.</p>
-            
+            <p>
+                Minden projekt tartalmaz 2 ingyenes korrekciós kört. További módosítások külön díjazást igényelnek.
+            </p>
+
             <h3>7. Lemondási feltételek</h3>
-            <p>A megkezdett projektek lemondása esetén a már elvégzett munka arányos díjazása kötelező.</p>
-            
+            <p>
+                A megkezdett projektek lemondása esetén a már elvégzett munka arányos díjazása kötelező.
+            </p>
+
             <h3>8. Felelősség</h3>
-            <p>A TwoFrame Studio vállalja, hogy szolgáltatásait a legnagyobb gondossággal és szakmai precizitással végzi.</p>
-            
+            <p>
+                A TwoFrame Studio vállalja, hogy szolgáltatásait a legnagyobb gondossággal és szakmai precizitással végzi.
+            </p>
+
             <h3>9. Titoktartás</h3>
-            <p>Minden projekttel kapcsolatos információt bizalmasan kezelünk.</p>
-            
-            <p style="margin-top: 40px; font-size: 16px; color: #888;">Utolsó frissítés: 2025. január 1.<br>Kérdés esetén: szabobarnabas@twoframe.hu</p>
+            <p>
+                Minden projekttel kapcsolatos információt bizalmasan kezelünk.
+            </p>
+
+            <p style="margin-top: 40px; font-size: 16px; color: #888;">
+                Utolsó frissítés: 2025. január 1.<br>
+                Kérdés esetén: twomotionstudiobp@gmail.com
+            </p>
         </div>
     </div>
 
     <!-- Adatvédelem Modal -->
-    <div id="privacyModal" class="modal">
+    <div id="privacyModal" class="modal" role="dialog" aria-labelledby="privacyTitle" aria-modal="true">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2>Adatvédelmi Tájékoztató</h2>
+            <span class="close-modal" onclick="closeModal('privacyModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="privacyTitle">Adatvédelmi Tájékoztató</h2>
             
             <h3>1. Bevezetés</h3>
-            <p>A TwoFrame Studio elkötelezett az Ön személyes adatainak védelme iránt. Jelen tájékoztató ismerteti, hogyan gyűjtjük, használjuk és védjük az Ön adatait.</p>
-            
+            <p>
+                A TwoFrame Studio elkötelezett az Ön személyes adatainak védelme iránt. 
+                Jelen tájékoztató ismerteti, hogyan gyűjtjük, használjuk és védjük az Ön adatait.
+            </p>
+
             <h3>2. Adatkezelő adatai</h3>
-            <p>Név: TwoFrame Studio<br>Székhely: Budapest, Magyarország<br>Email: szabobarnabas@twoframe.hu</p>
-            
+            <p>
+                Név: TwoFrame Studio<br>
+                Székhely: Budapest, Magyarország<br>
+                Email: twomotionstudiobp@gmail.com<br>
+                Telefon: +36 70 516 8766
+            </p>
+
             <h3>3. Kezelt adatok köre</h3>
-            <p>Az alábbi személyes adatokat kezelhetjük:<br>• Név, email cím, telefonszám<br>• Cégnév, vállalkozási adatok<br>• Számlázási és kapcsolattartási adatok<br>• Projekttel kapcsolatos kommunikáció tartalma</p>
-            
+            <p>
+                Az alábbi személyes adatokat kezelhetjük:<br>
+                • Név, email cím, telefonszám<br>
+                • Cégnév, vállalkozási adatok<br>
+                • Számlázási és kapcsolattartási adatok<br>
+                • Projekttel kapcsolatos kommunikáció tartalma
+            </p>
+
             <h3>4. Adatkezelés célja és jogalapja</h3>
-            <p><strong>Szerződés teljesítése:</strong> Az Önnel kötött szerződés végrehajtásához szükséges<br><strong>Kapcsolattartás:</strong> Az Ön által megadott hozzájárulás alapján<br><strong>Számlázás:</strong> Jogszabályi kötelezettség teljesítése<br><strong>Marketing:</strong> Az Ön önkéntes hozzájárulása alapján</p>
-            
+            <p>
+                <strong>Szerződés teljesítése:</strong> Az Önnel kötött szerződés végrehajtásához szükséges<br>
+                <strong>Kapcsolattartás:</strong> Az Ön által megadott hozzájárulás alapján<br>
+                <strong>Számlázás:</strong> Jogszabályi kötelezettség teljesítése<br>
+                <strong>Marketing:</strong> Az Ön önkéntes hozzájárulása alapján
+            </p>
+
             <h3>5. Adatmegőrzés időtartama</h3>
-            <p>• Szerződéses adatok: 5 évig (számviteli kötelezettség)<br>• Marketing adatok: a hozzájárulás visszavonásáig<br>• Kapcsolattartási adatok: a cél megvalósulásáig</p>
-            
+            <p>
+                • Szerződéses adatok: 5 évig (számviteli kötelezettség)<br>
+                • Marketing adatok: a hozzájárulás visszavonásáig<br>
+                • Kapcsolattartási adatok: a cél megvalósulásáig
+            </p>
+
             <h3>6. Adattovábbítás</h3>
-            <p>Személyes adatait harmadik félnek nem adjuk át, kivéve jogi kötelezettség esetén.</p>
-            
+            <p>
+                Személyes adatait harmadik félnek nem adjuk át, kivéve jogi kötelezettség esetén.
+            </p>
+
             <h3>7. Az Ön jogai</h3>
-            <p>A GDPR alapján Ön jogosult:<br>• <strong>Hozzáférés:</strong> Tájékoztatást kérni az adatairól<br>• <strong>Helyesbítés:</strong> Hibás adatok javítását kérni<br>• <strong>Törlés:</strong> Adatai törlését kérni<br>• <strong>Korlátozás:</strong> Az adatkezelés korlátozását kérni<br>• <strong>Tiltakozás:</strong> Tiltakozni az adatkezelés ellen<br>• <strong>Hozzájárulás visszavonása:</strong> Bármikor visszavonhatja</p>
-            
+            <p>
+                A GDPR alapján Ön jogosult:<br>
+                • <strong>Hozzáférés:</strong> Tájékoztatást kérni az adatairól<br>
+                • <strong>Helyesbítés:</strong> Hibás adatok javítását kérni<br>
+                • <strong>Törlés:</strong> Adatai törlését kérni<br>
+                • <strong>Korlátozás:</strong> Az adatkezelés korlátozását kérni<br>
+                • <strong>Tiltakozás:</strong> Tiltakozni az adatkezelés ellen<br>
+                • <strong>Hozzájárulás visszavonása:</strong> Bármikor visszavonhatja
+            </p>
+
             <h3>8. Adatbiztonság</h3>
-            <p>Megfelelő technikai és szervezési intézkedéseket alkalmazunk az Ön adatainak védelme érdekében.</p>
-            
+            <p>
+                Megfelelő technikai és szervezési intézkedéseket alkalmazunk az Ön adatainak védelme érdekében.
+            </p>
+
             <h3>9. Kapcsolat és panaszkezelés</h3>
-            <p>Adatvédelmi kérdéseivel kapcsolatban keressen minket:<br>Email: szabobarnabas@twoframe.hu</p>
-            
-            <p style="margin-top: 40px; font-size: 16px; color: #888;">Utolsó frissítés: 2025. január 1.<br>Kérdés esetén: szabobarnabas@twoframe.hu</p>
+            <p>
+                Adatvédelmi kérdéseivel kapcsolatban keressen minket:<br>
+                Email: szabobarnabas@twoframe.hu<br>
+                Telefon: +36 70 516 8766
+            </p>
+
+            <p style="margin-top: 40px; font-size: 16px; color: #888;">
+                Utolsó frissítés: 2025. január 1.<br>
+                Kérdés esetén: szabobarnabas@twoframe.hu
+            </p>
         </div>
     </div>
 
