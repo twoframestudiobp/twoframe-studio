@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://twoframe.hu/sitemap.xml
