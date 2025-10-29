@@ -740,9 +740,45 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-top: 40px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .contact-info {
@@ -966,31 +1002,31 @@
             </p>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageModal('IMG_4545.JPG')">
-                    <img src="IMG_4545.JPG" alt="Garden lights">
+                    <img src="IMG_4545.JPG" alt="Luxus Autómárka kampány">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4550.JPG')">
-                    <img src="IMG_4550.JPG" alt="Garden lights">
+                    <img src="IMG_4550.JPG" alt="Divat Fotózás">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4554.JPG')">
-                    <img src="IMG_4554.JPG" alt="Garden lights">
+                    <img src="IMG_4554.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4565.JPG')">
-                    <img src="IMG_4565.JPG" alt="Garden lights">
+                    <img src="IMG_4565.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4570.JPG')">
-                    <img src="IMG_4570.JPG" alt="Garden lights">
+                    <img src="IMG_4570.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4574.JPG')">
-                    <img src="IMG_4574.JPG" alt="Garden lights">
+                    <img src="IMG_4574.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4576.JPG')">
-                    <img src="IMG_4576.JPG" alt="Garden lights">
+                    <img src="IMG_4576.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4577.JPG')">
-                    <img src="IMG_4577.JPG" alt="Garden lights">
+                    <img src="IMG_4577.JPG" alt="Tech Startup">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4579.JPG')">
-                    <img src="IMG_4579.JPG" alt="Garden lights">
+                    <img src="IMG_4579.JPG" alt="Tech Startup">
                 </div>
             </div>
             
@@ -1448,5 +1484,4 @@
         });
     </script>
 </body>
-
 </html>
