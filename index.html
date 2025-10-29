@@ -298,7 +298,7 @@
             height: 100vh;
             background: linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.98));
             backdrop-filter: blur(20px);
-            z-index: 2000;
+            z-index: 1000;
             padding: 100px 30px 40px;
             overflow-y: auto;
             transition: all 0.4s ease;
@@ -354,6 +354,35 @@
 
         .mobile-nav a:hover::before {
             width: 10px;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+        }
+
+        .menu-close span {
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 3px;
+        }
+
+        .menu-close span:first-child {
+            transform: rotate(45deg);
+        }
+
+        .menu-close span:last-child {
+            transform: rotate(-45deg);
         }
 
         /* Hero Section */
@@ -835,6 +864,10 @@
     </header>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobil navigáció">
+        <div class="menu-close" onclick="closeMobileNav()" aria-label="Menü bezárása">
+            <span></span>
+            <span></span>
+        </div>
         <a data-href="#services">Szolgáltatások</a>
         <a data-modal="portfolioModal">Portfolio</a>
         <a data-modal="partnersModal">Partnereink</a>
