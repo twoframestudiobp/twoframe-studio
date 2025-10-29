@@ -664,6 +664,10 @@
             justify-content: center;
             padding: 20px;
             overflow-y: auto;
+            will-change: opacity, visibility;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         .modal.show {
@@ -752,6 +756,9 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
             transition: transform 0.3s ease;
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .portfolio-item:hover {
@@ -763,53 +770,40 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            border-radius: 20px;
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
-        .portfolio-item:hover img {
-            transform: scale(1.05);
+        #modalImage {
+            animation: zoomIn 0.3s ease-out;
+            will-change: transform, opacity;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
-        @media (max-width: 992px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
-
-        @media (max-width: 576px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+        
+        @keyframes zoomOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
             }
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 25px;
-            max-width: 500px;
-            margin: 40px auto 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-item span {
-            font-size: 24px;
-        }
-
-        .contact-item strong {
-            color: #ffffff;
-        }
-
-        .contact-item a {
-            color: #d4af37;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #f4d03f;
+            to {
+                opacity: 0;
+                transform: scale(0.3);
+            }
         }
 
         /* Responsive */
@@ -920,6 +914,9 @@
                 padding: 100px 20px 40px;
             }
         }
+
+        /* Image Modal Animations */
+        
     </style>
 </head>
 <body>
@@ -1002,10 +999,10 @@
             </p>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageModal('IMG_4545.webp')">
-                    <img loading="lazy" src="IMG_4545.webp" alt="Garden Lights - Kerti világítás 1">
+                    <img loading="lazy" src="IMG_4545.webp" alt="Garden Lights - Kerti világítás 1" width="400" height="300" decoding="async" fetchpriority="low">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4550.webp')">
-                    <img loading="lazy" src="IMG_4550.webp" alt="Garden Lights - Kerti világítás 2">
+                    <img loading="lazy" src="IMG_4550.webp" alt="Garden Lights - Kerti világítás 2" width="400" height="300" decoding="async" fetchpriority="low">
                 </div>
                 <div class="portfolio-item" onclick="openImageModal('IMG_4554.webp')">
                     <img loading="lazy" src="IMG_4554.webp" alt="Garden Lights - Fénydekoráció">
@@ -1031,9 +1028,9 @@
             </div>
             
             <!-- Image Modal -->
-            <div id="imageModal" class="modal">
-                <span class="close-modal" onclick="closeImageModal()">&times;</span>
-                <img id="modalImage" src="" alt="Nagyított kép">
+            <div id="imageModal" class="modal" style="background-color: rgba(0, 0, 0, 0.98);">
+                <span class="close-modal" onclick="closeImageModal()" style="position: fixed; top: 20px; right: 30px;">&times;</span>
+                <img id="modalImage" src="" alt="Nagyított kép" style="max-width: 90%; max-height: 90vh; object-fit: contain;">
             </div>
         </div>
     </div>
@@ -1431,6 +1428,37 @@
             modal.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
+
+        // Image modal functions
+        let modalImage, imageModal;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            modalImage = document.getElementById('modalImage');
+            imageModal = document.getElementById('imageModal');
+        });
+
+        function openImageModal(imagePath) {
+            modalImage.src = imagePath;
+            imageModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const imageModal = document.getElementById('imageModal');
+            imageModal.classList.add('closing');
+            setTimeout(() => {
+                imageModal.classList.remove('show', 'closing');
+                document.body.style.overflow = 'auto';
+                document.getElementById('modalImage').src = '';
+            }, 300);
+        }
+
+        // Close image modal when clicking outside
+        document.getElementById('imageModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('imageModal')) {
+                closeImageModal();
+            }
+        });
 
         // Close modal when clicking outside
         document.querySelectorAll('.modal').forEach(modal => {
