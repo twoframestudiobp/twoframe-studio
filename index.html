@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás</title>
+    <meta name="title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest | Reklámfilm & Fotózás">
+    <meta name="description" content="Professzionális brand és marketing ügynökség Budapesten. Prémium reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások. Kérjen ingyenes konzultációt!">
+    <meta name="keywords" content="marketing ügynökség budapest, reklámfilm készítés, professzionális fotózás, brand ügynökség, cégtanácsadás, video marketing, social media marketing, luxus marketing, prémium fotózás budapest, céges videó készítés">
+    <meta name="author" content="TwoFrame Studio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://twoframe.hu/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://twoframe.hu/">
+    <meta property="og:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="og:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.">
+    <meta property="og:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+    <meta property="og:locale" content="hu_HU">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://twoframe.hu/">
+    <meta property="twitter:title" content="TwoFrame Studio - Brand & Marketing Ügynökség Budapest">
+    <meta property="twitter:description" content="Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás.">
+    <meta property="twitter:image" content="https://twoframe.hu/TwoFrame%20(2).png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TwoFrame Studio",
+      "url": "https://twoframe.hu",
+      "logo": "https://twoframe.hu/TwoFrame%20(2).png",
+      "description": "Professzionális brand és marketing ügynökség Budapesten. Reklámfilmek, fotózások, cégtanácsadás és 360°-os marketing megoldások.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Budapest",
+        "addressCountry": "HU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+36-70-516-8766",
+        "email": "twomotionstudiobp@gmail.com",
+        "contactType": "Customer Service",
+        "availableLanguage": "Hungarian"
+      },
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Hungary"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVV512ZC61"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MVV512ZC61');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, #d4af37 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: bgMove 20s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2500;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: slideDown 0.8s ease;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 60px;
+        }
+
+        header.scrolled .logo-container {
+            width: 200px;
+            height: 100px;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .logo-container {
+            width: 250px;
+            height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+        }
+
+        /* Desktop Navigation */
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 4000;
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            padding: 10px;
+            margin: -10px;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 3px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+
+        .hamburger span:nth-child(1) {
+            transform: translateY(-8px);
+        }
+
+        .hamburger span:nth-child(3) {
+            transform: translateY(8px);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(20, 20, 20, 0.98));
+            backdrop-filter: blur(20px);
+            z-index: 3500;
+            padding: 100px 30px 40px;
+            overflow-y: auto;
+            transition: all 0.4s ease;
+            border-left: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .mobile-nav a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:active {
+            color: #d4af37;
+            padding-left: 25px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .mobile-nav a:hover::before {
+            width: 10px;
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+        }
+
+        .menu-close span {
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 3px;
+        }
+
+        .menu-close span:first-child {
+            transform: rotate(45deg);
+        }
+
+        .menu-close span:last-child {
+            transform: rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.9s both;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            position: relative;
+            padding: 120px 60px;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.1));
+            transition: top 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            top: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            margin-bottom: 30px;
+            color: #d4af37;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            animation-delay: 0.5s;
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            animation-delay: 1s;
+        }
+
+        .service-card:nth-child(4) .service-icon {
+            animation-delay: 1.5s;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Partner Styles */
+        .partner-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .partner-image {
+            width: 100%;
+            max-width: 1000px;
+            aspect-ratio: 1;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .partner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 20px;
+        }
+
+        .partner-card:hover .partner-image img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            padding: 60px 60px 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #f4d03f;
+        }
+
+        .copyright {
+            color: #888888;
+            font-size: 14px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(10, 10, 10, 0.95));
+            padding: 60px 40px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideIn 0.4s ease;
+            margin: auto;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #d4af37;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #f4d03f;
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            color: #d4af37;
+            font-size: 42px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            color: #d4af37;
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 25px;
+            max-width: 500px;
+            margin: 40px auto 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item span {
+            font-size: 24px;
+        }
+
+        .contact-item strong {
+            color: #ffffff;
+        }
+
+        .contact-item a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #f4d03f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            header.scrolled {
+                padding: 10px 20px;
+            }
+
+            .logo-container {
+                width: 180px;
+                height: 90px;
+            }
+
+            header.scrolled .logo-container {
+                width: 150px;
+                height: 75px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 50px;
+            }
+
+            .services {
+                padding: 80px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .modal-content {
+                padding: 50px 25px;
+                max-height: 90vh;
+            }
+
+            .modal-content h2 {
+                font-size: 32px;
+            }
+
+            .modal-content h3 {
+                font-size: 20px;
+            }
+
+            .modal-content p {
+                font-size: 16px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 14px;
+            }
+
+            .mobile-nav {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+
+            .close-modal {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+
+            .mobile-nav {
+                width: 100%;
+                max-width: none;
+                padding: 100px 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <header id="header">
+        <div class="logo-container">
+            <img src="TwoFrame (2).png" alt="TwoFrame Studio logó - Brand és marketing ügynökség Budapest">
+        </div>
+        <nav>
+            <a href="#services">Szolgáltatások</a>
+            <a onclick="openModal('portfolioModal')">Portfolio</a>
+            <a onclick="openModal('partnersModal')">Partnereink</a>
+            <a onclick="openModal('aboutModal')">Rólunk</a>
+            <a onclick="openModal('contactModal')">Kapcsolat</a>
+        </nav>
+        <div class="hamburger" id="hamburger" aria-label="Menü megnyitása">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobil navigáció">
+        <div class="menu-close" onclick="closeMobileNav()" aria-label="Menü bezárása">
+            <span></span>
+            <span></span>
+        </div>
+        <a data-href="#services">Szolgáltatások</a>
+        <a data-modal="portfolioModal">Portfolio</a>
+        <a data-modal="partnersModal">Partnereink</a>
+        <a data-modal="aboutModal">Rólunk</a>
+        <a data-modal="termsModal">ÁSZF</a>
+        <a data-modal="privacyModal">Adatvédelem</a>
+        <a data-modal="contactModal">Kapcsolat</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TWOFRAME STUDIO</h1>
+            <p>Brand & Marketing Ügynökség</p>
+            <a href="#services" class="cta-button">Fedezze fel</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Szolgáltatásaink</h2>
+        <div class="services-grid">
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🎬</div>
+                <h3>Reklámfilmek</h3>
+                <p>Professzionális videóprodukció a márka történetének életre keltésére. Kreatív koncepcióról a végső vágásig.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📸</div>
+                <h3>Fotózások</h3>
+                <p>Luxus termékfotózás és brandépítő vizuális tartalom, amely kiemelkedik a tömegből.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">💼</div>
+                <h3>Cégtanácsadás</h3>
+                <p>Stratégiai tanácsadás vállalkozása növekedéséhez és piaci pozíciójának erősítéséhez.</p>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📊</div>
+                <h3>Marketing Ügynökség</h3>
+                <p>360°-os marketing megoldások: digitális stratégia, branding és kampánymenedzsment.</p>
+            </article>
+        </div>
+    </section>
+
+    <div id="portfolioModal" class="modal" role="dialog" aria-labelledby="portfolioTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('portfolioModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="portfolioTitle">Portfolio</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">
+                Munkáink beszélnek magukért. Prémium brandek, kreatív kampányok és lenyűgöző vizuális tartalom.
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openImageModal('IMG_4545.JPG')">
+                    <img src="IMG_4545.JPG" alt="Luxus Autómárka kampány">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4550.JPG')">
+                    <img src="IMG_4550.JPG" alt="Divat Fotózás">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4554.JPG')">
+                    <img src="IMG_4554.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4565.JPG')">
+                    <img src="IMG_4565.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4570.JPG')">
+                    <img src="IMG_4570.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4574.JPG')">
+                    <img src="IMG_4574.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4576.JPG')">
+                    <img src="IMG_4576.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4577.JPG')">
+                    <img src="IMG_4577.JPG" alt="Tech Startup">
+                </div>
+                <div class="portfolio-item" onclick="openImageModal('IMG_4579.JPG')">
+                    <img src="IMG_4579.JPG" alt="Tech Startup">
+                </div>
+            </div>
+            
+            <!-- Image Modal -->
+            <div id="imageModal" class="modal">
+                <span class="close-modal" onclick="closeImageModal()">&times;</span>
+                <img id="modalImage" src="" alt="Nagyított kép">
+            </div>
+        </div>
+    </div>
+
+    <div id="aboutModal" class="modal" role="dialog" aria-labelledby="aboutTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('aboutModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="aboutTitle">Rólunk</h2>
+            <p style="font-size: 20px; color: #d4af37; text-align: center; margin-bottom: 30px; font-weight: 600;">
+                A TwoFrame Studio - Fiatal tehetség, profi megoldások
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Két 17 éves srác vagyunk, akik komoly tudással és profi eszközökkel dolgoznak. 
+                Szenvedélyünk a vizuális művészet és a marketing, ami megmutatkozik minden projektünkben.
+            </p>
+            <p style="text-align: center; font-size: 18px;">
+                Az, hogy fiatalok vagyunk, nem akadály - előny. Friss szemlélettel, modern trendekkel és 
+                határtalan kreativitással közelítünk minden feladathoz. Professzionális felszerelésünk és 
+                elkötelezettségünk garantálja, hogy ügyfeleink a legjobb minőséget kapják.
+            </p>
+        </div>
+    </div>
+
+    <div id="partnersModal" class="modal" role="dialog" aria-labelledby="partnersTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('partnersModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="partnersTitle">Partnereink</h2>
+            <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
+                Büszkék vagyunk arra, hogy kiváló cégekkel dolgozhatunk együtt
+            </p>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 60px;">
+                Partnereink között szerepelnek vezető brandek és innovatív vállalkozások, akik megbíznak 
+                szakértelmünkben és kreativitásunkban.
+            </p>
+            
+            <div class="partner-container">
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="Kincsek logo.jpg" alt="Kincsek logó">
+                    </div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin: 15px 0;">Kincsek Művészeti Klub</h3>
+                    <p style="font-size: 15px;">Gyermekfelügyelet, közösségépítés</p>
+                </div>
+                
+               <!-- <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="divat.jpg" alt="Divat & Luxus">
+                    </div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin: 15px 0;">Divat & Luxus</h3>
+                    <p style="font-size: 15px;">Haute couture és fashion brandek</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="tech.jpg" alt="Tech & Startup">
+                    </div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin: 15px 0;">Tech & Startup</h3>
+                    <p style="font-size: 15px;">Innovatív technológiai cégek</p>
+                </div>
+                -->
+                
+                <!-- További partner kártyák ide jöhetnek
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">👗</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Divat & Luxus</h3>
+                    <p style="font-size: 15px;">Haute couture és fashion brandek</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💻</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Tech & Startup</h3>
+                    <p style="font-size: 15px;">Innovatív technológiai cégek</p>
+                </article>
+
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🏢</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ingatlan</h3>
+                    <p style="font-size: 15px;">Prémium ingatlanfejlesztők</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🍽️</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Gasztronómia</h3>
+                    <p style="font-size: 15px;">Fine dining éttermek</p>
+                </article>
+                
+                <article class="service-card" style="padding: 40px 30px;">
+                    <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💎</div>
+                    <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ékszerek & Órák</h3>
+                    <p style="font-size: 15px;">Luxury ékszer brandek</p>
+                </article>
+                -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="mailto:twomotionstudiobp@gmail.com" class="cta-button">Legyünk partnerek</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal" role="dialog" aria-labelledby="contactTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('contactModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="contactTitle">Kapcsolat</h2>
+            <p style="text-align: center; font-size: 20px; color: #d4af37; margin-bottom: 40px; font-weight: 600;">
+                Készen áll arra, hogy felemelje márkáját a következő szintre?
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span aria-hidden="true">📧</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:twomotionstudiobp@gmail.com">twomotionstudiobp@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span aria-hidden="true">📱</span>
+                    <div>
+                        <strong>Telefon:</strong><br>
+                        <a href="tel:+36705168766">+36 70 516 8766</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span aria-hidden="true">📍</span>
+                    <div>
+                        <strong>Cím:</strong><br>
+                        <span style="color: #cccccc;">Budapest, Magyarország</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="mailto:twomotionstudiobp@gmail.com" class="cta-button">Ingyenes Konzultáció</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal" role="dialog" aria-labelledby="termsTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="termsTitle">Általános Szerződési Feltételek</h2>
+            
+            <h3>1. A szolgáltató adatai</h3>
+            <p>
+                Szolgáltató neve: TwoFrame Studio<br>
+                Székhely: Budapest, Magyarország<br>
+                Email: twomotionstudiobp@gmail.com<br>
+                Telefon: +36 70 516 8766
+            </p>
+
+            <h3>2. Szolgáltatások</h3>
+            <p>
+                A TwoFrame Studio professzionális marketing és vizuális tartalom szolgáltatásokat nyújt, beleértve:
+            </p>
+            <p>
+                • Reklámfilm készítés és videóprodukció<br>
+                • Professzionális fotózások és vizuális tartalom készítés<br>
+                • Cégtanácsadás és üzleti stratégia fejlesztés<br>
+                • Marketing ügynökségi szolgáltatások és kampánymenedzsment
+            </p>
+
+            <h3>3. Szerződés létrejötte</h3>
+            <p>
+                A szerződés az ügyfél megkeresését követően, írásbeli ajánlat és annak elfogadása után jön létre. 
+                A projekt részleteit egyedi szerződésben rögzítjük.
+            </p>
+
+            <h3>4. Árak és fizetési feltételek</h3>
+            <p>
+                A szolgáltatások díjazását egyedileg határozzuk meg. Általában 50% előleg a projekt indításakor, 
+                50% a projekt átadásakor.
+            </p>
+
+            <h3>5. Szerzői jogok</h3>
+            <p>
+                Az elkészült anyagok szerzői jogai a TwoFrame Studio-t illetik meg. A teljes díj kifizetését 
+                követően az ügyfél korlátlan felhasználási jogot kap.
+            </p>
+
+            <h3>6. Módosítások és korrekciók</h3>
+            <p>
+                Minden projekt tartalmaz 2 ingyenes korrekciós kört. További módosítások külön díjazást igényelnek.
+            </p>
+
+            <h3>7. Lemondási feltételek</h3>
+            <p>
+                A megkezdett projektek lemondása esetén a már elvégzett munka arányos díjazása kötelező.
+            </p>
+
+            <h3>8. Felelősség</h3>
+            <p>
+                A TwoFrame Studio vállalja, hogy szolgáltatásait a legnagyobb gondossággal és szakmai precizitással végzi.
+            </p>
+
+            <h3>9. Titoktartás</h3>
+            <p>
+                Minden projekttel kapcsolatos információt bizalmasan kezelünk.
+            </p>
+
+            <p style="margin-top: 40px; font-size: 16px; color: #888;">
+                Utolsó frissítés: 2025. január 1.<br>
+                Kérdés esetén: twomotionstudiobp@gmail.com
+            </p>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="modal" role="dialog" aria-labelledby="privacyTitle" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('privacyModal')" aria-label="Bezárás">&times;</span>
+            <h2 id="privacyTitle">Adatvédelmi Tájékoztató</h2>
+            
+            <h3>1. Bevezetés</h3>
+            <p>
+                A TwoFrame Studio elkötelezett az Ön személyes adatainak védelme iránt. 
+                Jelen tájékoztató ismerteti, hogyan gyűjtjük, használjuk és védjük az Ön adatait.
+            </p>
+
+            <h3>2. Adatkezelő adatai</h3>
+            <p>
+                Név: TwoFrame Studio<br>
+                Székhely: Budapest, Magyarország<br>
+                Email: twomotionstudiobp@gmail.com<br>
+                Telefon: +36 70 516 8766
+            </p>
+
+            <h3>3. Kezelt adatok köre</h3>
+            <p>
+                Az alábbi személyes adatokat kezelhetjük:<br>
+                • Név, email cím, telefonszám<br>
+                • Cégnév, vállalkozási adatok<br>
+                • Számlázási és kapcsolattartási adatok<br>
+                • Projekttel kapcsolatos kommunikáció tartalma
+            </p>
+
+            <h3>4. Adatkezelés célja és jogalapja</h3>
+            <p>
+                <strong>Szerződés teljesítése:</strong> Az Önnel kötött szerződés végrehajtásához szükséges<br>
+                <strong>Kapcsolattartás:</strong> Az Ön által megadott hozzájárulás alapján<br>
+                <strong>Számlázás:</strong> Jogszabályi kötelezettség teljesítése<br>
+                <strong>Marketing:</strong> Az Ön önkéntes hozzájárulása alapján
+            </p>
+
+            <h3>5. Adatmegőrzés időtartama</h3>
+            <p>
+                • Szerződéses adatok: 5 évig (számviteli kötelezettség)<br>
+                • Marketing adatok: a hozzájárulás visszavonásáig<br>
+                • Kapcsolattartási adatok: a cél megvalósulásáig
+            </p>
+
+            <h3>6. Adattovábbítás</h3>
+            <p>
+                Személyes adatait harmadik félnek nem adjuk át, kivéve jogi kötelezettség esetén.
+            </p>
+
+            <h3>7. Az Ön jogai</h3>
+            <p>
+                A GDPR alapján Ön jogosult:<br>
+                • <strong>Hozzáférés:</strong> Tájékoztatást kérni az adatairól<br>
+                • <strong>Helyesbítés:</strong> Hibás adatok javítását kérni<br>
+                • <strong>Törlés:</strong> Adatai törlését kérni<br>
+                • <strong>Korlátozás:</strong> Az adatkezelés korlátozását kérni<br>
+                • <strong>Tiltakozás:</strong> Tiltakozni az adatkezelés ellen<br>
+                • <strong>Hozzájárulás visszavonása:</strong> Bármikor visszavonhatja
+            </p>
+
+            <h3>8. Adatbiztonság</h3>
+            <p>
+                Megfelelő technikai és szervezési intézkedéseket alkalmazunk az Ön adatainak védelme érdekében.
+            </p>
+
+            <h3>9. Kapcsolat és panaszkezelés</h3>
+            <p>
+                Adatvédelmi kérdéseivel kapcsolatban keressen minket:<br>
+                Email: twomotionstudiobp@gmail.com<br>
+                Telefon: +36 70 516 8766
+            </p>
+
+            <p style="margin-top: 40px; font-size: 16px; color: #888;">
+                Utolsó frissítés: 2025. január 1.<br>
+                Kérdés esetén: twomotionstudiobp@gmail.com
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a onclick="openModal('privacyModal')">Adatvédelem</a>
+                <a onclick="openModal('termsModal')">ÁSZF</a>
+                <a onclick="openModal('contactModal')">Kapcsolat</a>
+            </div>
+            <p class="copyright">© 2025 TwoFrame Studio. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu elements
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileNav();
+        });
+
+        // Close on overlay click or clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileNav.classList.contains('active') && 
+                !mobileNav.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                closeMobileNav();
+            }
+        });
+
+        mobileNavOverlay.addEventListener('click', () => {
+            closeMobileNav();
+        });
+
+        function toggleMobileNav() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
+            
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+                mobileNav.style.display = 'flex';
+            } else {
+                document.body.style.overflow = 'auto';
+                setTimeout(() => {
+                    if (!mobileNav.classList.contains('active')) {
+                        mobileNav.style.display = 'none';
+                    }
+                }, 400);
+            }
+        }
+
+        function closeMobileNav() {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Mobile navigation click handlers
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Check if it's a section link or modal
+                const href = this.getAttribute('data-href');
+                const modal = this.getAttribute('data-modal');
+                
+                if (href) {
+                    // Scroll to section
+                    closeMobileNav();
+                    setTimeout(() => {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }, 400);
+                } else if (modal) {
+                    // Open modal and close mobile nav
+                    closeMobileNav();
+                    openModal(modal);
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            closeMobileNav();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        closeMobileNav();
+                        setTimeout(() => {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 300);
+                    }
+                }
+            });
+        });
+
+        // Animate service cards on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
