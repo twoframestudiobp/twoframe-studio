@@ -245,22 +245,28 @@
             background: #d4af37;
             border-radius: 3px;
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            transform-origin: center;
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+
+        .hamburger span:nth-child(1) {
+            transform: translateY(-8px);
+        }
+
+        .hamburger span:nth-child(3) {
+            transform: translateY(8px);
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-            background: #d4af37;
+            transform: rotate(45deg);
         }
 
         .hamburger.active span:nth-child(2) {
             opacity: 0;
-            background: #d4af37;
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-            background: #d4af37;
+            transform: rotate(-45deg);
         }
 
         /* Mobile Navigation Overlay */
