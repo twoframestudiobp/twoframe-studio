@@ -74,6 +74,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', 'Segoe UI', sans-serif;
             background: #0a0a0a;
@@ -281,6 +285,7 @@
             transition: right 0.4s ease;
             border-left: 2px solid rgba(212, 175, 55, 0.3);
             box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+            -webkit-overflow-scrolling: touch;
         }
 
         .mobile-nav.active {
@@ -289,7 +294,7 @@
 
         .mobile-nav a {
             display: block;
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
@@ -299,6 +304,7 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
         }
 
         .mobile-nav a::before {
@@ -385,7 +391,9 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-        }.cta-button::before {
+        }
+
+        .cta-button::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -554,6 +562,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-y: auto;
         }
 
         .modal.show {
@@ -576,6 +585,7 @@
             max-height: 85vh;
             overflow-y: auto;
             animation: slideIn 0.4s ease;
+            margin: auto;
         }
 
         @keyframes slideIn {
@@ -799,13 +809,13 @@
     </header>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobil navigáció">
-        <a href="#services" onclick="closeMobileNav()">Szolgáltatások</a>
-        <a onclick="openModal('portfolioModal'); closeMobileNav()">Portfolio</a>
-        <a onclick="openModal('partnersModal'); closeMobileNav()">Partnereink</a>
-        <a onclick="openModal('aboutModal'); closeMobileNav()">Rólunk</a>
-        <a onclick="openModal('termsModal'); closeMobileNav()">ÁSZF</a>
-        <a onclick="openModal('privacyModal'); closeMobileNav()">Adatvédelem</a>
-        <a onclick="openModal('contactModal'); closeMobileNav()">Kapcsolat</a>
+        <a data-href="#services">Szolgáltatások</a>
+        <a data-modal="portfolioModal">Portfolio</a>
+        <a data-modal="partnersModal">Partnereink</a>
+        <a data-modal="aboutModal">Rólunk</a>
+        <a data-modal="termsModal">ÁSZF</a>
+        <a data-modal="privacyModal">Adatvédelem</a>
+        <a data-modal="contactModal">Kapcsolat</a>
     </nav>
 
     <section class="hero">
@@ -914,7 +924,9 @@
                     <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">💻</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Tech & Startup</h3>
                     <p style="font-size: 15px;">Innovatív technológiai cégek</p>
-                </article><article class="service-card" style="padding: 40px 30px;">
+                </article>
+
+                <article class="service-card" style="padding: 40px 30px;">
                     <div style="font-size: 48px; margin-bottom: 20px;" aria-hidden="true">🏢</div>
                     <h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px;">Ingatlan</h3>
                     <p style="font-size: 15px;">Prémium ingatlanfejlesztők</p>
@@ -1180,6 +1192,34 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Mobile navigation click handlers
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Check if it's a section link or modal
+                const href = this.getAttribute('data-href');
+                const modal = this.getAttribute('data-modal');
+                
+                if (href) {
+                    // Scroll to section
+                    closeMobileNav();
+                    setTimeout(() => {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }, 400);
+                } else if (modal) {
+                    // Open modal
+                    openModal(modal);
+                }
+            });
+        });
+
         // Modal functions
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
@@ -1203,19 +1243,22 @@
             });
         });
 
-        // Smooth scrolling
+        // Smooth scrolling for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    closeMobileNav();
-                    setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 300);
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        closeMobileNav();
+                        setTimeout(() => {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 300);
+                    }
                 }
             });
         });
