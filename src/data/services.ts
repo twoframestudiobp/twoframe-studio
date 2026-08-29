@@ -19,7 +19,7 @@ export const services: ServiceItem[] = [
     tagline: "Koncertek, fellépések és események vizuális dokumentálása.",
     description:
       "A koncertek és rendezvények energiája megismételhetetlen. Olyan felvételeket és aftermovie-kat készítünk, amelyek nem csupán dokumentálnak, hanem újra átélhetővé teszik az élményt és eladják a következő fellépésed jegyeit.",
-    forWhom: "Zenekaroknak, előadóknak, fesztiváloknak, turnéknak és exkluzív rendezvényszervezőknek.",
+    forWhom: "Zenekaroknak, előadóknak, fesztiváloknak, turnéknak és rendezvényszervezőknek.",
     deliverables: [
       "Dinamikus színpadi és backstage fotózás",
       "Függőleges Social Recap videók (Reels, TikTok)",
@@ -27,7 +27,7 @@ export const services: ServiceItem[] = [
       "Koncertfilm és aftermovie vágás professzionális hangutómunkával",
     ],
     highlight: "24 órán belüli gyorsválogatás azonnali közösségi média megosztáshoz.",
-    image: "/images/IMG_4565.webp",
+    image: "/portfolio/live/IMG_4565.webp",
   },
   {
     id: "brands-commercial",
@@ -44,7 +44,7 @@ export const services: ServiceItem[] = [
       "Rövid, konverziót támogató videós hirdetéskreatívok",
     ],
     highlight: "Komplett vizuális styling és kreatív koncepció a márkád stílusára szabva.",
-    image: "/images/IMG_4570.webp",
+    image: "/portfolio/commercial/IMG_4570.webp",
   },
   {
     id: "portrait-editorial",
@@ -61,7 +61,7 @@ export const services: ServiceItem[] = [
       "Modell és ruhamárka lookbook fotózás",
     ],
     highlight: "Személyre szabott fénybeállítások és professzionális kreatív irányítás a fotózás alatt.",
-    image: "/images/IMG_4579.webp",
+    image: "/portfolio/portrait/IMG_4545.webp",
   },
   {
     id: "content-partnership",
@@ -78,7 +78,7 @@ export const services: ServiceItem[] = [
       "Stratégiai vizuális irányvonal és márkaidentitás fenntartása",
     ],
     highlight: "Kiszámítható havi együttműködés, kevesebb adminisztráció, maximális kreatív összhang.",
-    image: "/images/IMG_4550.webp",
+    image: "/portfolio/commercial/IMG_4574.webp",
     isPartnership: true,
   },
 ];
