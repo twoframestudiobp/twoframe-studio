@@ -140,7 +140,15 @@ export default function ServicesPage() {
                 {/* CTA Button */}
                 <div className="pt-2">
                   <Link
-                    href={`/kapcsolat?service=${service.id}`}
+                    href={`/kapcsolat?tipus=${
+                      service.id === "live-events"
+                        ? "concert"
+                        : service.id === "brands-commercial"
+                        ? "commercial"
+                        : service.id === "portrait-editorial"
+                        ? "portrait"
+                        : "partnership"
+                    }`}
                     className={`inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-md ${
                       service.isPartnership
                         ? "bg-violet-600 hover:bg-violet-500 text-white"

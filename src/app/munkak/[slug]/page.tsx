@@ -247,7 +247,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </div>
 
         <Link
-          href={`/kapcsolat?project=${encodeURIComponent(project.title)}`}
+          href={`/kapcsolat?tipus=${project.category}&project=${encodeURIComponent(project.title)}`}
           className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-white text-zinc-950 hover:bg-violet-200 transition-all shadow-xl shrink-0"
         >
           <span>Beszéljünk a projektről</span>

@@ -275,7 +275,7 @@ export default function HomePage() {
 
               <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-center gap-4">
                 <Link
-                  href="/kapcsolat?type=partnership"
+                  href="/kapcsolat?tipus=partnership"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-white text-zinc-950 hover:bg-violet-300 transition-all duration-300 shadow-xl"
                 >
                   <span>Dolgozzunk együtt</span>
