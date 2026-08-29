@@ -410,7 +410,7 @@ export default function InquiryForm() {
               id="date"
               name="date"
               type="text"
-              placeholder="Pl. 2025. tavasz / Konkrét dátum"
+              placeholder="Pl. 2026. tavasz / Konkrét dátum"
               value={formData.date}
               onChange={handleChange}
               disabled={isSubmitting}

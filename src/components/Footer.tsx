@@ -33,7 +33,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-3 text-[11px] tracking-wider text-zinc-500">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>Elérhető új projektekre</span>
+              <span>Elérhető új projektekre • 2026</span>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Services Column */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <h4 className="text-[11px] uppercase tracking-[0.22em] text-zinc-300 font-medium">
-              Területek
+              Kategóriák
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/szolgaltatasok#brands-commercial" className="hover:text-white transition-colors duration-200">
-                  Brands &amp; Commercial
+                  Commercial
                 </Link>
               </li>
               <li>
@@ -115,10 +115,20 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-500">
-          <span>© {new Date().getFullYear()} TwoFrame Studio. Minden jog fenntartva.</span>
-          <div className="flex items-center gap-5">
+        {/* Bottom bar with Legal Links */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+          <div className="flex flex-wrap items-center gap-4">
+            <span>© {new Date().getFullYear()} TwoFrame Studio. Minden jog fenntartva.</span>
+            <span className="text-zinc-700 hidden sm:inline">&bull;</span>
+            <Link href="/aszf" className="hover:text-zinc-300 transition-colors">
+              ÁSZF
+            </Link>
+            <span className="text-zinc-700">&bull;</span>
+            <Link href="/adatkezeles" className="hover:text-zinc-300 transition-colors">
+              Adatkezelési Tájékoztató
+            </Link>
+          </div>
+          <div className="flex items-center gap-4">
             <a href="https://twoframe.hu" className="hover:text-zinc-300 transition-colors tracking-wider">
               twoframe.hu
             </a>
