@@ -37,6 +37,9 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ==========================================
+  // 1. LIVE & EVENTS
+  // ==========================================
   {
     slug: "elo-koncert",
     id: "elo-koncert",
@@ -94,106 +97,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "artist-portrait",
-    id: "artist-portrait",
-    title: "Artist Portrait",
-    category: "portrait",
-    categoryLabel: "Portré & Editorial",
-    shortDescription: "Karakteres, filmes hatású előadói portrésorozat stúdióban és külső helyszínen.",
-    year: "2026",
-    location: "Budapest, HU",
-    client: "Előadói Portfólió",
-    coverImage: "/portfolio/portrait/IMG_4545.webp",
-    image: "/portfolio/portrait/IMG_4545.webp",
-    featured: true,
-    layoutSpan: "tall",
-    services: ["Előadói arculat", "Lemezborító fotózás", "Sajtó & Promo anyagok", "Social Portfólió"],
-    projectDescription:
-      "Egy feltörekvő zenei előadó számára készítettünk átfogó vizuális portfóliót, amely a közelgő albummegjelenést és a turné promócióját kíséri. A koncepció a nyers, őszinte tekintetekre és a karakteres fény-árnyék kontrasztokra épült.",
-    challenge:
-      "Olyan portrévilágot teremteni, amely elkerüli a steril stúdiófotó kliséit, és valódi mélységet ad az előadó művészi identitásának.",
-    approach:
-      "Finoman irányított természetes és formázott mesterséges fények kombinációjával dolgoztunk, filmes tónusú analóg színvilággal.",
-    result:
-      "Egységes sajtó- és streaming-kész fotósorozat, amely azonnal felhasználtak Spotify borítókon és zenei magazinok címlapján.",
-    galleryImages: [
-      {
-        src: "/portfolio/portrait/IMG_4545.webp",
-        alt: "Artist Portrait kiemelt fotó",
-        aspect: "portrait",
-        caption: "Karakteres előadói közeli portré.",
-      },
-      {
-        src: "/portfolio/portrait/018C245B-DF73-437B-87C4-B4DC3EA75354.webp",
-        alt: "Editorial portré beállítás",
-        aspect: "portrait",
-        caption: "Kifejező stúdióvilágítás és letisztult forma.",
-      },
-      {
-        src: "/portfolio/portrait/047C323A-D01B-477B-887D-BD65ED1D7FB4.webp",
-        alt: "Hangulati portré kép",
-        aspect: "portrait",
-        caption: "Mély tónusok és fókuszált tekintet.",
-      },
-      {
-        src: "/portfolio/portrait/1BF76D2F-97F9-44E0-A117-3D1E51D24642.webp",
-        alt: "Promo sorozat részlet",
-        aspect: "portrait",
-        caption: "Modern zenei promóciós anyag.",
-      },
-    ],
-  },
-  {
-    slug: "brand-content",
-    id: "brand-content",
-    title: "Brand Content",
-    category: "commercial",
-    categoryLabel: "Commercial",
-    shortDescription: "Kortárs márkaidentitást építő fotó- és videósorozat digitális kampányokhoz.",
-    year: "2026",
-    location: "Budapest, HU",
-    client: "Kreatív Brand",
-    coverImage: "/portfolio/commercial/IMG_4570.webp",
-    image: "/portfolio/commercial/IMG_4570.webp",
-    featured: true,
-    layoutSpan: "wide",
-    services: ["Social Media Tartalomgyártás", "Termék- & Modellfotózás", "Rövid formátumú videók", "Havi Tartalomcsomag"],
-    projectDescription:
-      "A márka vizuális kommunikációjának megújítása prémium, mégis fiatalos és közvetlen esztétikával. A fotók és rövid videók a modern digitális platformok elvárásaihoz lettek igazítva.",
-    challenge:
-      "Egységes vizuális nyelvet alkotni, amely a közösségi média hírfolyamban azonnal kitűnik és fenntartja a prémium márkaértéket.",
-    approach:
-      "Dinamikus kompozíciók, természetes textúrák és visszafogott, letisztult színpaletta alkalmazása.",
-    result:
-      "3x-os elköteleződés-növekedés a közösségi csatornákon és egységes digitális márkaélmény.",
-    galleryImages: [
-      {
-        src: "/portfolio/commercial/IMG_4570.webp",
-        alt: "Brand Content vezérkép",
-        aspect: "wide",
-        caption: "Márkaatmoszféra és prémium környezet.",
-      },
-      {
-        src: "/portfolio/commercial/IMG_4574.webp",
-        alt: "Termék és modell részlet",
-        aspect: "portrait",
-        caption: "Közeli részletgazdag textúrák és kompozíció.",
-      },
-      {
-        src: "/portfolio/commercial/IMG_4577.webp",
-        alt: "Kampányfotó sorozat",
-        aspect: "portrait",
-        caption: "Vertikális social-ready formátum.",
-      },
-      {
-        src: "/portfolio/commercial/_Aug_27_2026_at_02_29_03_PM_1_.webp",
-        alt: "Lookbook kampányfotó",
-        aspect: "portrait",
-        caption: "Editorial stílusú márkakampány kép.",
-      },
-    ],
-  },
-  {
     slug: "szinpadi-dinamika",
     id: "szinpadi-dinamika",
     title: "Színpadi dinamika",
@@ -241,106 +144,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "minimal-studio-portre",
-    id: "minimal-studio-portre",
-    title: "Minimal Stúdió Portré",
-    category: "portrait",
-    categoryLabel: "Portré & Editorial",
-    shortDescription: "Letisztult vonalak, precíz világítás és természetes tekintetek.",
-    year: "2026",
-    location: "Budapest, HU",
-    client: "Modell & Alkotó",
-    coverImage: "/portfolio/portrait/DSC02213.webp",
-    image: "/portfolio/portrait/DSC02213.webp",
-    featured: false,
-    layoutSpan: "tall",
-    services: ["Stúdiófotózás", "Karakterportré", "Magazin Editorial"],
-    projectDescription:
-      "Letisztult, monokróm és mély tónusú stúdiófotózás, ahol minden felesleges elem eltűnik a fókuszból, teret engedve az arckifejezésnek és a formáknak.",
-    challenge: "Minimális eszközhasználattal maximális kifejezőerőt elérni.",
-    approach: "Karakteres egyfényes beállítás és finom élvilágítás.",
-    result: "Nemzetközi magazin színvonalú portfólió anyag.",
-    galleryImages: [
-      {
-        src: "/portfolio/portrait/DSC02213.webp",
-        alt: "Minimal stúdió portré",
-        aspect: "portrait",
-        caption: "Letisztult formák és természetes fényirányok.",
-      },
-      {
-        src: "/portfolio/portrait/c6655855-b77f-46b2-8e09-32b6a2ae9ae8.webp",
-        alt: "Editorial beállítás",
-        aspect: "portrait",
-        caption: "Magazinos kompozíció és karakter.",
-      },
-      {
-        src: "/portfolio/portrait/e2d7b116-628e-498a-ba8c-f2dbe164ab03.webp",
-        alt: "Stúdió sorozat",
-        aspect: "portrait",
-        caption: "Kifinomult portré részlet.",
-      },
-      {
-        src: "/portfolio/portrait/ad18ce88-d2fa-473b-9939-717c0d95befe.webp",
-        alt: "Finom tónusok",
-        aspect: "portrait",
-        caption: "Kreatív megvilágítás és forma.",
-      },
-    ],
-  },
-  {
-    slug: "turne-dokumentacio",
-    id: "turne-dokumentacio",
-    title: "Turné Dokumentáció",
-    category: "live",
-    categoryLabel: "Live & Events",
-    shortDescription: "Backstage, utazás és a fellépések közötti intim pillanatok krónikája.",
-    year: "2026",
-    location: "Turné, HU",
-    client: "Turné Produkció",
-    coverImage: "/portfolio/live/DSC02537_.webp",
-    image: "/portfolio/live/DSC02537_.webp",
-    featured: false,
-    layoutSpan: "regular",
-    services: ["Dokumentarista fotózás", "Backstage hozzáférés", "Turnéfilm"],
-    projectDescription:
-      "A turnéélet kendőzetlen, filmes hangulatú bemutatása a próbateremtől az öltözőn át a koncertek utáni levezetésig.",
-    challenge: "Észrevétlenül jelen lenni és a legmeghittebb pillanatokat elkapni.",
-    approach: "Kompakt, diszkrét felszerelés és meleg tónusú filmszimulációs színkezelés.",
-    result: "Hiteles történetmesélés a zenekar legfontosabb mérföldköveiről.",
-    galleryImages: [
-      {
-        src: "/portfolio/live/DSC02537_.webp",
-        alt: "Turné pillanat",
-        aspect: "portrait",
-        caption: "Backstage hangulat és előkészület.",
-      },
-      {
-        src: "/portfolio/live/DSC02553_.webp",
-        alt: "Zenészek felkészülése",
-        aspect: "portrait",
-        caption: "Feszült figyelem a színpadra lépés előtt.",
-      },
-      {
-        src: "/portfolio/live/DSC02568_.webp",
-        alt: "Utazás és backstage",
-        aspect: "portrait",
-        caption: "A turné ritmusa és az út.",
-      },
-      {
-        src: "/portfolio/live/DSC02576_.webp",
-        alt: "Koncert után",
-        aspect: "portrait",
-        caption: "A koncert utáni felszabadult momentum.",
-      },
-    ],
-  },
-  {
     slug: "atmoszfera-es-terek",
     id: "atmoszfera-es-terek",
     title: "Atmoszféra és Terek",
     category: "live",
     categoryLabel: "Live & Events",
-    shortDescription: "A rendezvényhelyszínek, arénák és a közönség közös energiája.",
+    shortDescription: "A rendezvényhelyszínek, fesztiválok és a közönség közös energiája.",
     year: "2026",
     location: "Budapest, HU",
     client: "Fesztivál & Esemény",
@@ -350,7 +159,7 @@ export const projects: Project[] = [
     layoutSpan: "wide",
     services: ["Eseményfotózás", "Tér- és látványrögzítés", "Fesztivál aftermovie"],
     projectDescription:
-      "A helyszíni építészet, a fénytechnika és a több ezres tömeg vibráló kapcsolatának nagylátószögű bemutatása.",
+      "A helyszíni fénytechnika és a több ezres tömeg vibráló kapcsolatának nagylátószögű bemutatása.",
     challenge: "A monumentális terek arányainak és a közönség intim reakcióinak egyensúlya.",
     approach: "Szuperszéles látószög és magas dinamikatartományú expozíció.",
     result: "Látványos, reprezentatív vizuális archívum a szervezők és szponzorok számára.",
@@ -378,6 +187,60 @@ export const projects: Project[] = [
         alt: "Közönség élmény",
         aspect: "portrait",
         caption: "A fesztiválközönség energiája.",
+      },
+    ],
+  },
+
+  // ==========================================
+  // 2. COMMERCIAL
+  // ==========================================
+  {
+    slug: "brand-content",
+    id: "brand-content",
+    title: "Brand Content",
+    category: "commercial",
+    categoryLabel: "Commercial",
+    shortDescription: "Kortárs márkaidentitást építő fotó- és videósorozat digitális kampányokhoz.",
+    year: "2026",
+    location: "Budapest, HU",
+    client: "Kreatív Brand",
+    coverImage: "/portfolio/commercial/IMG_4570.webp",
+    image: "/portfolio/commercial/IMG_4570.webp",
+    featured: true,
+    layoutSpan: "wide",
+    services: ["Social Media Tartalomgyártás", "Termék- & Modellfotózás", "Rövid formátumú videók", "Havi Tartalomcsomag"],
+    projectDescription:
+      "A márka vizuális kommunikációjának megújítása prémium, mégis közvetlen esztétikával. A fotók és rövid videók a modern digitális platformok elvárásaihoz lettek igazítva.",
+    challenge:
+      "Egységes vizuális nyelvet alkotni, amely a közösségi média hírfolyamban azonnal kitűnik és fenntartja a prémium márkaértéket.",
+    approach:
+      "Dinamikus kompozíciók, természetes textúrák és letisztult színpaletta alkalmazása.",
+    result:
+      "Magasabb elköteleződés a közösségi csatornákon és egységes digitális márkaélmény.",
+    galleryImages: [
+      {
+        src: "/portfolio/commercial/IMG_4570.webp",
+        alt: "Brand Content vezérkép",
+        aspect: "wide",
+        caption: "Márkaatmoszféra és prémium környezet.",
+      },
+      {
+        src: "/portfolio/commercial/IMG_4574.webp",
+        alt: "Termék és modell részlet",
+        aspect: "portrait",
+        caption: "Közeli részletgazdag textúrák és kompozíció.",
+      },
+      {
+        src: "/portfolio/commercial/IMG_4577.webp",
+        alt: "Kampányfotó sorozat",
+        aspect: "portrait",
+        caption: "Vertikális social-ready formátum.",
+      },
+      {
+        src: "/portfolio/commercial/_Aug_27_2026_at_02_29_03_PM_1_.webp",
+        alt: "Lookbook kampányfotó",
+        aspect: "portrait",
+        caption: "Editorial stílusú márkakampány kép.",
       },
     ],
   },
@@ -425,6 +288,160 @@ export const projects: Project[] = [
         alt: "Modell kompozíció",
         aspect: "portrait",
         caption: "Hangulati editorial képkocka.",
+      },
+    ],
+  },
+
+  // ==========================================
+  // 3. PORTRÉ & EDITORIAL
+  // ==========================================
+  {
+    slug: "editorial-portre-sorozat",
+    id: "editorial-portre-sorozat",
+    title: "Editorial Portrésorozat",
+    category: "portrait",
+    categoryLabel: "Portré & Editorial",
+    shortDescription: "Finoman megvilágított, karakteres és mély hangulatú editorial portréfotózás.",
+    year: "2026",
+    location: "Budapest, HU",
+    client: "Modell & Alkotó",
+    coverImage: "/portfolio/portrait/DSC02537_.webp",
+    image: "/portfolio/portrait/DSC02537_.webp",
+    featured: true,
+    layoutSpan: "tall",
+    services: ["Editorial Portré", "Magazin fotózás", "Karakter Styling"],
+    projectDescription:
+      "Kifinomult megvilágítású, filmes tónusú editorial portrésorozat. A fókusz a tekintet mélységén, a fény-árnyék játékán és a történetmesélésen van.",
+    challenge: "Érzelmi mélységet és intim, filmes atmoszférát teremteni a kompozícióban.",
+    approach: "Irányított lágy ellenfények és meleg tónusú filmszimuláció alkalmazása.",
+    result: "Kiemelkedő minőségű editorial és sajtó-portfólió anyag.",
+    galleryImages: [
+      {
+        src: "/portfolio/portrait/DSC02537_.webp",
+        alt: "Editorial portré nyitókép",
+        aspect: "portrait",
+        caption: "Hangulati portré finom ellenfénnyel.",
+      },
+      {
+        src: "/portfolio/portrait/DSC02553_.webp",
+        alt: "Karakteres tekintet",
+        aspect: "portrait",
+        caption: "Intim pillanat és fókuszált tekintet.",
+      },
+      {
+        src: "/portfolio/portrait/DSC02568_.webp",
+        alt: "Részlet és kompozíció",
+        aspect: "portrait",
+        caption: "Filmes atmoszféra és kompozíció.",
+      },
+      {
+        src: "/portfolio/portrait/DSC02576_.webp",
+        alt: "Editorial zárókép",
+        aspect: "portrait",
+        caption: "Természetes elegancia és textúrák.",
+      },
+      {
+        src: "/portfolio/portrait/DSC02589_.webp",
+        alt: "Fekete-fehér vagy mély tónusú portré",
+        aspect: "portrait",
+        caption: "Karakteres beállítás.",
+      },
+    ],
+  },
+  {
+    slug: "artist-portrait",
+    id: "artist-portrait",
+    title: "Artist Portrait",
+    category: "portrait",
+    categoryLabel: "Portré & Editorial",
+    shortDescription: "Karakteres, filmes hatású előadói portrésorozat stúdióban és külső helyszínen.",
+    year: "2026",
+    location: "Budapest, HU",
+    client: "Előadói Portfólió",
+    coverImage: "/portfolio/portrait/IMG_4545.webp",
+    image: "/portfolio/portrait/IMG_4545.webp",
+    featured: false,
+    layoutSpan: "tall",
+    services: ["Előadói arculat", "Lemezborító fotózás", "Sajtó & Promo anyagok", "Social Portfólió"],
+    projectDescription:
+      "Egy feltörekvő zenei előadó számára készítettünk átfogó vizuális portfóliót, amely a közelgő albummegjelenést kíséri.",
+    challenge:
+      "Olyan portrévilágot teremteni, amely elkerüli a steril stúdiófotó kliséit, és valódi mélységet ad az előadó identitásának.",
+    approach:
+      "Finoman irányított természetes és mesterséges fények kombinációjával dolgoztunk.",
+    result:
+      "Egységes sajtó- és streaming-kész fotósorozat Spotify borítókhoz és promócióhoz.",
+    galleryImages: [
+      {
+        src: "/portfolio/portrait/IMG_4545.webp",
+        alt: "Artist Portrait kiemelt fotó",
+        aspect: "portrait",
+        caption: "Karakteres előadói közeli portré.",
+      },
+      {
+        src: "/portfolio/portrait/018C245B-DF73-437B-87C4-B4DC3EA75354.webp",
+        alt: "Editorial portré beállítás",
+        aspect: "portrait",
+        caption: "Kifejező stúdióvilágítás és letisztult forma.",
+      },
+      {
+        src: "/portfolio/portrait/047C323A-D01B-477B-887D-BD65ED1D7FB4.webp",
+        alt: "Hangulati portré kép",
+        aspect: "portrait",
+        caption: "Mély tónusok és fókuszált tekintet.",
+      },
+      {
+        src: "/portfolio/portrait/1BF76D2F-97F9-44E0-A117-3D1E51D24642.webp",
+        alt: "Promo sorozat részlet",
+        aspect: "portrait",
+        caption: "Modern zenei promóciós anyag.",
+      },
+    ],
+  },
+  {
+    slug: "minimal-studio-portre",
+    id: "minimal-studio-portre",
+    title: "Minimal Stúdió Portré",
+    category: "portrait",
+    categoryLabel: "Portré & Editorial",
+    shortDescription: "Letisztult vonalak, precíz világítás és természetes tekintetek.",
+    year: "2026",
+    location: "Budapest, HU",
+    client: "Modell & Alkotó",
+    coverImage: "/portfolio/portrait/DSC02213.webp",
+    image: "/portfolio/portrait/DSC02213.webp",
+    featured: false,
+    layoutSpan: "tall",
+    services: ["Stúdiófotózás", "Karakterportré", "Magazin Editorial"],
+    projectDescription:
+      "Letisztult, monokróm és mély tónusú stúdiófotózás, ahol minden felesleges elem eltűnik a fókuszból, teret engedve az arckifejezésnek és a formáknak.",
+    challenge: "Minimális eszközhasználattal maximális kifejezőerőt elérni.",
+    approach: "Karakteres egyfényes beállítás és finom élvilágítás.",
+    result: "Nemzetközi magazin színvonalú portfólió anyag.",
+    galleryImages: [
+      {
+        src: "/portfolio/portrait/DSC02213.webp",
+        alt: "Minimal stúdió portré",
+        aspect: "portrait",
+        caption: "Letisztult formák és természetes fényirányok.",
+      },
+      {
+        src: "/portfolio/portrait/c6655855-b77f-46b2-8e09-32b6a2ae9ae8.webp",
+        alt: "Editorial beállítás",
+        aspect: "portrait",
+        caption: "Magazinos kompozíció és karakter.",
+      },
+      {
+        src: "/portfolio/portrait/e2d7b116-628e-498a-ba8c-f2dbe164ab03.webp",
+        alt: "Stúdió sorozat",
+        aspect: "portrait",
+        caption: "Kifinomult portré részlet.",
+      },
+      {
+        src: "/portfolio/portrait/ad18ce88-d2fa-473b-9939-717c0d95befe.webp",
+        alt: "Finom tónusok",
+        aspect: "portrait",
+        caption: "Kreatív megvilágítás és forma.",
       },
     ],
   },
