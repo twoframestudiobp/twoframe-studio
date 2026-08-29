@@ -1,28 +1,71 @@
-# TwoFrame Studio — Hivatalos Weboldal
+# TwoFrame Studio — Hivatalos Weboldal & Esettanulmány Rendszer
 
 > „Vizuális tartalom előadóknak, eseményeknek és márkáknak.”
 
-Prémium, modern kreatív stúdió weboldal letisztult, sötét tónusú szerkesztői (editorial) vizuális identitással.
+Prémium, modern kreatív stúdió weboldal szerkesztői (editorial) vizuális identitással és dinamikus esettanulmány (case study) rendszerrel.
 
 ---
 
 ## ⚡️ Főbb Jellemzők
 
-- **Sötét szerkesztői esztétika**: Kifejezetten a mély tónusú zenei, rendezvény és márkavizuálok bemutatására tervezve, finom lila akcentusokkal (`#8b5cf6`).
-- **Nagyfelbontású képközpontú galéria**: Kategóriánként szűrhető portfólió (Live & Events, Commercial & Brands, Portrait & Editorial) beépített billentyűzet-vezérelt teljes képernyős Lightbox funkcióval.
-- **Részletes szolgáltatásismertetők**:
-  - `01` **Live & Events**: Koncertek, fellépések és események vizuális dokumentálása.
-  - `02` **Brands & Commercial**: Fotó- és videótartalom márkáknak, vendéglátóhelyeknek és vállalkozásoknak.
-  - `03` **Portrait & Editorial**: Portré, előadói promo, modell és personal branding tartalom.
-  - `04` **Content Partnership (Kiemelt)**: Rendszeres vizuális tartalom folyamatos márkanövekedéshez.
-- **Ajánlatkérő rendszer**: Átfogó, reszponzív űrlap valós idejű visszajelzéssel és egyedi költségkeret-opciókkal.
-- **SEO & Teljesítmény**: Next.js App Router, SSR/SSG előrenderelés, OpenGraph metaadatok, dinamikus sitemap és robots.txt.
+- **Szerkesztői Aszimmetrikus Portfólió (`/munkak`)**:
+  - Finom, minimalista kategóriaszűrők (**Összes**, **Live & Events**, **Commercial**, **Portré & Editorial**) valós idejű projektszámlálóval.
+  - Magazinszerű elrendezés (hero, tall, wide kártyák), nagy méretű fotókkal és visszafogott lebegő animációkkal.
+- **Dinamikus Esettanulmány Rendszer (`/munkak/[slug]`)**:
+  - Nagyméretű hero nyitókép és specifikációs sáv (Ügyfél, Helyszín, Év, Szolgáltatások).
+  - Szerkesztői bevezető és strukturált háttér (Koncepció, Megvalósítás, Eredmény).
+  - Változatos képarányokat (panoráma, álló, fekvő) támogató vizuális fotógaléria képaláírásokkal.
+  - Előző / Következő projekt közötti közvetlen navigáció.
+  - Dedikált konverziós záróblokk (*„Dolgozzunk együtt”*).
+- **Megosztott Adatmodell & Főoldali Integráció**:
+  - A főoldal kiemelt válogatása automatikusan a `src/data/projects.ts` `featured: true` elemeiből táplálkozik.
+  - Nincs redundáns adatismétlés.
+
+---
+
+## 📸 Új Projekt Hozzáadása & Képek Cseréje
+
+1. **Fotók elhelyezése a mappastruktúrában:**
+   - Live & Events: `/public/portfolio/live/<fájlnév>.webp`
+   - Commercial: `/public/portfolio/commercial/<fájlnév>.webp`
+   - Portré & Editorial: `/public/portfolio/portrait/<fájlnév>.webp`
+
+2. **Projekt regisztrálása a `src/data/projects.ts` fájlban:**
+   ```typescript
+   {
+     slug: "uj-projekt-slug",
+     title: "Projekt Címe",
+     category: "live", // "live" | "commercial" | "portrait"
+     categoryLabel: "Live & Events",
+     shortDescription: "Rövid összefoglaló a portfólió rácshoz...",
+     year: "2025",
+     location: "Budapest, HU",
+     client: "Ügyfél / Produkció",
+     coverImage: "/portfolio/live/uj-kep.webp",
+     image: "/portfolio/live/uj-kep.webp",
+     featured: true, // Megjelenjen a főoldalon is?
+     services: ["Koncertfotózás", "Aftermovie"],
+     projectDescription: "Részletes háttértörténet az esettanulmányhoz...",
+     challenge: "Koncepció és kihívás...",
+     approach: "Megvalósítás és technika...",
+     result: "Eredmény...",
+     galleryImages: [
+       {
+         src: "/portfolio/live/uj-kep.webp",
+         alt: "Kép leírása",
+         aspect: "wide", // "wide" | "portrait" | "landscape" | "square"
+         caption: "Opcionális képaláírás..."
+       }
+     ]
+   }
+   ```
+3. A Next.js a build során automatikusan legenerálja az új esettanulmányt a `/munkak/uj-projekt-slug` címen.
 
 ---
 
 ## 🛠 Technológiai Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router, React 19)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, Static Site Generation / SSR)
 - **Nyelv**: [TypeScript](https://www.typescriptlang.org/)
 - **Stílusok**: [Tailwind CSS](https://tailwindcss.com/)
 - **Ikonok**: [Lucide React](https://lucide.dev/)
@@ -30,73 +73,43 @@ Prémium, modern kreatív stúdió weboldal letisztult, sötét tónusú szerkes
 
 ---
 
-## 🚀 Fejlesztői Környezet Indítása
+## 🚀 Fejlesztői Környezet & Build
 
-1. **Függőségek telepítése:**
-   ```bash
-   npm install
-   ```
+```bash
+# Függőségek telepítése
+npm install
 
-2. **Fejlesztői szerver indítása:**
-   ```bash
-   npm run dev
-   ```
-   Nyisd meg a böngészőben: [http://localhost:3000](http://localhost:3000)
+# Fejlesztői szerver
+npm run dev
 
-3. **Production Build készítése:**
-   ```bash
-   npm run build
-   ```
+# Production build tesztelése
+npm run build
 
-4. **Production szerver futtatása:**
-   ```bash
-   npm run start
-   ```
+# Production szerver futtatása
+npm run start
+```
 
 ---
 
-## 📁 Projekt Struktúra
+## 📁 Főbb Fájlok
 
 ```
-├── public/
-│   ├── images/               # Nagyfelbontású vizuális anyagok és WebP fotók
-│   ├── logo.png              # TwoFrame Studio logó
-│   └── CNAME                 # Egyedi domain beállítás (twoframe.hu)
+├── public/portfolio/         # Kategóriákra bontott portfólió fotók
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx        # Fő layout, betűtípusok, navigáció és lábléc
-│   │   ├── page.tsx          # Főoldal (Hero, Kiemelt munkák, Szakterületek, Partnerség)
-│   │   ├── munkak/           # Portfólió galéria szűrőkkel és Lightbox modal-lal
-│   │   ├── szolgaltatasok/   # Szolgáltatások részletes bemutatása
-│   │   ├── rolam/            # Szabó Barnabás kreatív igazgató bemutatkozása
-│   │   ├── kapcsolat/        # Ajánlatkérő űrlap és stúdió elérhetőségek
-│   │   ├── globals.css       # Sötét téma stílusok és egyedi CSS osztályok
-│   │   ├── sitemap.ts        # Dinamikus sitemap generátor
-│   │   └── robots.ts         # Robot szabályok
+│   │   ├── munkak/
+│   │   │   ├── page.tsx      # Portfólió főoldal minimalista szűrőkkel
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx  # Dinamikus esettanulmány oldal
+│   │   └── sitemap.ts        # Automatikusan frissülő dinamikus sitemap
 │   ├── components/
-│   │   ├── Navbar.tsx        # Sticky, üveghatású navigációs sáv és mobil menü
-│   │   ├── Footer.tsx        # Prémium lábléc és elérhetőségek
-│   │   ├── ProjectCard.tsx   # Szerkesztői kártya lebegő effektekkel
-│   │   ├── Lightbox.tsx      # Teljes képernyős képnézegető
-│   │   └── InquiryForm.tsx   # Ajánlatkérő űrlap
-│   ├── data/
-│   │   ├── projects.ts       # Munkák és projektek adatstruktúrája
-│   │   └── services.ts       # Szolgáltatások adatstruktúrája
-│   └── lib/
-│       └── utils.ts          # Segédfüggvények (cn helper)
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-└── next.config.mjs
+│   │   ├── PortfolioFilters.tsx  # Minimalista szöveges kategóriaszűrők
+│   │   ├── PortfolioProject.tsx  # Magazinszerű projektkártya
+│   │   ├── PortfolioGrid.tsx     # Aszimmetrikus rács
+│   │   ├── CaseStudyGallery.tsx  # Esettanulmány fotógaléria
+│   │   └── ProjectNavigation.tsx # Előző/Következő navigáció
+│   └── data/
+│       └── projects.ts       # Központi portfólió és esettanulmány adatbázis
 ```
-
----
-
-## 🌐 Kapcsolat
-
-- **Weboldal**: [twoframe.hu](https://twoframe.hu)
-- **Email**: [kapcsolat@twoframe.hu](mailto:kapcsolat@twoframe.hu)
-- **Telefon**: +36 70 516 8766
-- **Alapító & Kreatív Igazgató**: Szabó Barnabás
 
 © 2024 TwoFrame Studio. Minden jog fenntartva.

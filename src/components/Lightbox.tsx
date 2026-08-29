@@ -19,7 +19,7 @@ export default function Lightbox({
   onSelectProject,
 }: LightboxProps) {
   const currentIndex = project
-    ? projects.findIndex((p) => p.id === project.id)
+    ? projects.findIndex((p) => p.slug === project.slug || p.id === project.id)
     : -1;
 
   const handlePrev = useCallback(() => {
@@ -106,7 +106,7 @@ export default function Lightbox({
       >
         <div className="relative w-full h-[65vh] sm:h-[75vh] flex items-center justify-center">
           <Image
-            src={project.image}
+            src={project.coverImage || project.image}
             alt={project.title}
             fill
             className="object-contain"
@@ -131,7 +131,7 @@ export default function Lightbox({
               {project.title}
             </h3>
             <p className="text-xs text-zinc-300 font-light mt-0.5">
-              {project.description}
+              {project.shortDescription || project.description}
             </p>
           </div>
 

@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,14 +11,11 @@ import {
   Repeat,
   CheckCircle2,
 } from "lucide-react";
-import { projects, Project } from "@/data/projects";
+import { getFeaturedProjects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
-import Lightbox from "@/components/Lightbox";
 
 export default function HomePage() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
+  const featuredProjects = getFeaturedProjects().slice(0, 4);
 
   return (
     <div className="flex flex-col w-full">
@@ -29,7 +24,7 @@ export default function HomePage() {
         {/* Background Visual Area */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
-            src="/images/IMG_4565.webp"
+            src="/portfolio/live/IMG_4565.webp"
             alt="TwoFrame Studio Live Visual"
             fill
             priority
@@ -37,7 +32,6 @@ export default function HomePage() {
           />
           {/* Gradients to blend with near-black page background */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/60 to-[#08080a]/40" />
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#08080a]/50 to-[#08080a]" />
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
@@ -115,14 +109,13 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Editorial Grid */}
+        {/* Editorial Grid linking to Case Studies */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredProjects.map((project, idx) => (
             <ProjectCard
-              key={project.id}
+              key={project.slug}
               project={project}
               priority={idx < 2}
-              onOpenLightbox={(p) => setSelectedProject(p)}
             />
           ))}
         </div>
@@ -335,14 +328,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
-      {/* Lightbox Modal */}
-      <Lightbox
-        project={selectedProject}
-        projects={projects}
-        onClose={() => setSelectedProject(null)}
-        onSelectProject={(p) => setSelectedProject(p)}
-      />
     </div>
   );
 }
