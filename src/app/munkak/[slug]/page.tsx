@@ -10,16 +10,7 @@ import {
 } from "@/data/projects";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
 import ProjectNavigation from "@/components/ProjectNavigation";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Sparkles,
-  MapPin,
-  Calendar,
-  User,
-  CheckCircle2,
-} from "lucide-react";
-
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import JsonLd from "@/components/JsonLd";
 
@@ -118,38 +109,40 @@ export default async function CaseStudyPage({ params }: PageProps) {
   return (
     <article className="min-h-screen pt-28 sm:pt-36 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full flex flex-col">
       <JsonLd data={projectSchema} />
-      {/* Back to all works */}
-      <div className="mb-8">
+
+      {/* Back link */}
+      <div className="mb-10">
         <Link
           href="/munkak"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-zinc-400 hover:text-violet-400 transition-colors group"
+          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-zinc-500 hover:text-white transition-colors group"
         >
-          <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft className="w-3.5 h-3.5 transform group-hover:-translate-x-1 transition-transform" />
           <span>Vissza a munkákhoz</span>
         </Link>
       </div>
 
-      {/* Hero Header Meta */}
-      <header className="flex flex-col gap-6 mb-12 max-w-4xl">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="px-3.5 py-1 text-xs font-semibold tracking-[0.2em] uppercase rounded-full bg-violet-500/15 border border-violet-400/30 text-violet-300">
-            {project.categoryLabel}
-          </span>
-          <span className="text-zinc-500">•</span>
-          <span className="text-xs text-zinc-400 font-mono">{project.year}</span>
+      {/* Hero Header */}
+      <header className="flex flex-col gap-5 mb-12 max-w-4xl">
+        <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-zinc-500 font-medium">
+          <span className="text-violet-400 font-semibold">{project.categoryLabel}</span>
+          <span>·</span>
+          <span className="font-mono text-zinc-400">{project.year}</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight leading-[1.08]">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white tracking-tight leading-[1.05]">
           {project.title}
         </h1>
 
-        <p className="text-lg sm:text-xl text-zinc-300 font-light leading-relaxed max-w-3xl">
+        <p className="text-base sm:text-xl text-zinc-400 font-light leading-relaxed max-w-2xl">
           {project.shortDescription}
         </p>
       </header>
 
       {/* Large Hero Image */}
-      <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/[0.08] mb-16 shadow-2xl">
+      <div
+        className="relative w-full aspect-[16/10] sm:aspect-[21/9] overflow-hidden bg-zinc-950 mb-16 shadow-2xl"
+        style={{ borderRadius: "4px" }}
+      >
         <Image
           src={project.coverImage || project.image}
           alt={project.title}
@@ -158,99 +151,98 @@ export default async function CaseStudyPage({ params }: PageProps) {
           sizes="(max-width: 1400px) 100vw, 1300px"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Project Metadata Specs Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-2xl bg-zinc-950/80 border border-white/[0.08] mb-16">
+      {/* Project Metadata Specs */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-white/[0.08] mb-16">
         {/* Client */}
         <div className="flex flex-col gap-1">
-          <span className="text-[11px] uppercase tracking-widest text-zinc-500 font-medium">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500 font-medium">
             Ügyfél / Produkció
           </span>
-          <span className="text-sm sm:text-base font-normal text-white">
+          <span className="text-sm font-normal text-white">
             {project.client}
           </span>
         </div>
 
         {/* Location */}
         <div className="flex flex-col gap-1">
-          <span className="text-[11px] uppercase tracking-widest text-zinc-500 font-medium">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500 font-medium">
             Helyszín
           </span>
-          <span className="text-sm sm:text-base font-normal text-white">
+          <span className="text-sm font-normal text-white">
             {project.location}
           </span>
         </div>
 
         {/* Year */}
         <div className="flex flex-col gap-1">
-          <span className="text-[11px] uppercase tracking-widest text-zinc-500 font-medium">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500 font-medium">
             Év
           </span>
-          <span className="text-sm sm:text-base font-normal text-white font-mono">
+          <span className="text-sm font-normal text-white font-mono">
             {project.year}
           </span>
         </div>
 
         {/* Services */}
         <div className="flex flex-col gap-1">
-          <span className="text-[11px] uppercase tracking-widest text-zinc-500 font-medium">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500 font-medium">
             Szolgáltatások
           </span>
-          <span className="text-sm sm:text-base font-normal text-violet-300">
+          <span className="text-sm font-normal text-zinc-300">
             {project.services.join(", ")}
           </span>
         </div>
       </div>
 
-      {/* Project Introduction & Editorial Narrative */}
+      {/* Editorial Narrative */}
       {(project.projectDescription || project.challenge || project.approach || project.result) && (
         <section className="mb-20 max-w-4xl">
           <div className="flex flex-col gap-10">
-            {/* Main Story */}
             {project.projectDescription && (
-              <div className="space-y-4">
-                <span className="text-xs uppercase tracking-[0.25em] text-violet-400 font-semibold block">
+              <div className="space-y-3">
+                <span className="text-[11px] uppercase tracking-[0.28em] text-zinc-500 font-medium block">
                   A Projektről
                 </span>
-                <p className="text-base sm:text-xl text-zinc-200 font-light leading-relaxed">
+                <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
                   {project.projectDescription}
                 </p>
               </div>
             )}
 
-            {/* Structured Insights (Challenge / Approach / Result) */}
+            {/* Insights (Challenge / Approach / Result) */}
             {(project.challenge || project.approach || project.result) && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/[0.08]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/[0.06]">
                 {project.challenge && (
-                  <div className="p-6 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col gap-2">
-                    <h3 className="text-xs uppercase tracking-wider text-violet-400 font-semibold">
-                      01 / Koncepció
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-mono text-zinc-500 tracking-widest">
+                      01 / KONCEPCIÓ
+                    </span>
+                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
                       {project.challenge}
                     </p>
                   </div>
                 )}
 
                 {project.approach && (
-                  <div className="p-6 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col gap-2">
-                    <h3 className="text-xs uppercase tracking-wider text-violet-400 font-semibold">
-                      02 / Megvalósítás
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-mono text-zinc-500 tracking-widest">
+                      02 / MEGVALÓSÍTÁS
+                    </span>
+                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
                       {project.approach}
                     </p>
                   </div>
                 )}
 
                 {project.result && (
-                  <div className="p-6 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col gap-2">
-                    <h3 className="text-xs uppercase tracking-wider text-violet-400 font-semibold">
-                      03 / Eredmény
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-mono text-zinc-500 tracking-widest">
+                      03 / EREDMÉNY
+                    </span>
+                    <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
                       {project.result}
                     </p>
                   </div>
@@ -261,14 +253,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Large Visual Gallery */}
+      {/* Visual Gallery */}
       <section className="mb-24">
         <div className="mb-8">
-          <span className="text-xs uppercase tracking-[0.25em] text-violet-400 font-semibold block mb-1">
-            Vizuális Galéria
+          <span className="text-[11px] uppercase tracking-[0.28em] text-zinc-500 font-medium block mb-2">
+            Galéria
           </span>
-          <h2 className="text-2xl sm:text-3xl font-normal text-white">
-            Fotósorozat & Részletek
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Fotósorozat &amp; Részletek
           </h2>
         </div>
 
@@ -278,34 +270,33 @@ export default async function CaseStudyPage({ params }: PageProps) {
         />
       </section>
 
-      {/* Bottom Call to Action */}
-      <section className="p-8 sm:p-14 rounded-3xl bg-gradient-to-r from-violet-950/40 via-[#0e0e14] to-zinc-950 border border-violet-500/30 mb-20 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left shadow-2xl">
-        <div className="flex flex-col gap-2 max-w-xl">
-          <span className="text-xs uppercase tracking-[0.2em] text-violet-400 font-semibold">
-            Hasonló Vizuális Anyagot Keresel?
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight">
-            Dolgozzunk együtt
-          </h2>
-          <p className="text-sm text-zinc-300 font-light">
-            Van egy projekted? Beszéljünk róla. Készítünk egy egyedi kreatív koncepciót és árajánlatot.
-          </p>
-        </div>
-
-        <Link
-          href={`/kapcsolat?tipus=${project.category}&project=${encodeURIComponent(project.title)}`}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-white text-zinc-950 hover:bg-violet-200 transition-all shadow-xl shrink-0"
-        >
-          <span>Beszéljünk a projektről</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </section>
-
-      {/* Previous / Next Project Navigation */}
+      {/* Adjacent Project Navigation */}
       <ProjectNavigation
         prevProject={prevProject}
         nextProject={nextProject}
       />
+
+      {/* Bottom CTA */}
+      <section className="mt-20 pt-16 border-t border-white/[0.07] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <span className="text-[11px] uppercase tracking-[0.28em] text-zinc-500 font-medium block mb-2">
+            Együttműködés
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight mb-2">
+            Hasonló vizuális anyagot keresel?
+          </h2>
+          <p className="text-zinc-500 text-sm font-light">
+            Vedd fel velünk a kapcsolatot a részletek és árajánlat egyeztetéséhez.
+          </p>
+        </div>
+        <Link
+          href={`/kapcsolat?project=${encodeURIComponent(project.title)}`}
+          className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-violet-600 hover:bg-violet-500 text-white transition-all duration-300"
+        >
+          <span>Ajánlatkérés ehhez a projekthez</span>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </section>
     </article>
   );
 }

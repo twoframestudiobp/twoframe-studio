@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/munkak", label: "Munkák" },
@@ -18,14 +18,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,11 +28,17 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#08080a]/90 backdrop-blur-md border-b border-white/[0.08] py-4"
+          ? "bg-[#08080a]/95 backdrop-blur-lg border-b border-white/[0.06] py-4"
           : "bg-transparent py-6"
       }`}
     >
@@ -46,40 +46,37 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-3 text-white transition-opacity hover:opacity-90"
+          className="flex items-center gap-2.5 text-white group"
+          aria-label="TwoFrame Studio — Főoldal"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white to-zinc-400 p-[1px] flex items-center justify-center">
-            <div className="w-full h-full bg-[#08080a] rounded-[7px] flex items-center justify-center group-hover:bg-zinc-900 transition-colors">
-              <span className="font-bold text-xs tracking-tighter text-white">2F</span>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-semibold tracking-[0.15em] text-sm uppercase text-white">
+          {/* Wordmark style logo */}
+          <div className="flex flex-col leading-none">
+            <span className="font-semibold tracking-[0.18em] text-[13px] uppercase text-white group-hover:text-zinc-200 transition-colors">
               TwoFrame
             </span>
-            <span className="text-[10px] tracking-[0.25em] text-zinc-400 uppercase -mt-1 font-medium">
+            <span className="text-[9px] tracking-[0.32em] text-zinc-500 uppercase font-medium">
               Studio
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Főnavigáció">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-xs uppercase tracking-[0.2em] transition-all duration-200 relative py-1 ${
+                className={`relative text-[11px] uppercase tracking-[0.22em] transition-colors duration-200 py-1 ${
                   isActive
                     ? "text-white font-medium"
-                    : "text-zinc-400 hover:text-white"
+                    : "text-zinc-400 hover:text-zinc-100 font-normal"
                 }`}
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-violet-400 rounded-full" />
+                  <span className="absolute -bottom-0.5 left-0 w-full h-[1px] bg-violet-400/80" />
                 )}
               </Link>
             );
@@ -87,56 +84,70 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center">
           <Link
             href="/kapcsolat"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium uppercase tracking-[0.15em] bg-white/5 border border-white/15 text-white hover:bg-violet-600 hover:border-violet-500 hover:text-white transition-all duration-300 shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] font-medium uppercase tracking-[0.18em] border border-white/20 text-white hover:bg-violet-600 hover:border-violet-500 transition-all duration-300"
           >
-            <span>Kérj ajánlatot</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            Kérj ajánlatot
           </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-zinc-300 hover:text-white rounded-lg focus:outline-none focus:ring-1 focus:ring-violet-400/50"
-          aria-label="Navigáció megnyitása"
+          className="md:hidden p-2 -mr-1 text-zinc-300 hover:text-white transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-violet-400"
+          aria-label={mobileMenuOpen ? "Menü bezárása" : "Menü megnyitása"}
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[65px] bg-[#08080a]/98 backdrop-blur-xl border-t border-white/[0.08] z-40 md:hidden flex flex-col justify-between p-8 animate-fade-in">
-          <nav className="flex flex-col gap-6 pt-4">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+        <div className="fixed inset-0 top-0 bg-[#08080a] z-40 md:hidden flex flex-col pt-24 px-8 pb-10">
+          {/* Close button stays fixed */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 p-2 text-zinc-400 hover:text-white transition-colors"
+            aria-label="Menü bezárása"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <nav className="flex flex-col gap-1" aria-label="Mobilnavigáció">
+            {navLinks.map((link, i) => {
+              const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-xl font-light uppercase tracking-[0.15em] transition-colors ${
-                    isActive ? "text-violet-400 font-normal" : "text-zinc-300 hover:text-white"
+                  className={`py-4 text-2xl font-light tracking-tight border-b border-white/[0.06] transition-colors animate-slide-up ${
+                    isActive ? "text-white" : "text-zinc-400 hover:text-white"
                   }`}
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
+                  {isActive && (
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-violet-400 mr-3 mb-0.5 align-middle" />
+                  )}
                   {link.label}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-8 border-t border-white/[0.08] flex flex-col gap-4">
+          <div className="mt-auto pt-8 flex flex-col gap-3">
             <Link
               href="/kapcsolat"
-              className="w-full text-center py-3.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-violet-600 text-white hover:bg-violet-500 transition-colors shadow-lg shadow-violet-900/30"
+              className="w-full text-center py-4 rounded-full text-xs font-semibold uppercase tracking-[0.22em] bg-violet-600 hover:bg-violet-500 text-white transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
             >
               Kérj ajánlatot
             </Link>
-            <div className="text-center text-xs text-zinc-400 mt-2">
-              <span>kapcsolat@twoframe.hu</span> • <span>+36 70 516 8766</span>
-            </div>
+            <p className="text-center text-[11px] text-zinc-500 mt-1">
+              kapcsolat@twoframe.hu
+            </p>
           </div>
         </div>
       )}

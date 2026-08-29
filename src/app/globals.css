@@ -23,7 +23,7 @@ html {
 body {
   background-color: #08080a;
   color: #f4f4f5;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,7 +36,7 @@ body {
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,52 +44,150 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #1f1f23;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #2d2d33;
 }
 
-/* Editorial subtle borders and card effects */
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ======================================================
+   EDITORIAL DESIGN TOKENS
+   ====================================================== */
+
+/* Subtle card surface */
 .editorial-card {
-  background: linear-gradient(180deg, rgba(24, 24, 27, 0.6) 0%, rgba(15, 15, 19, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(160deg, rgba(20, 20, 25, 0.7) 0%, rgba(12, 12, 16, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .editorial-card:hover {
-  border-color: rgba(139, 92, 246, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 16px 48px -12px rgba(109, 40, 217, 0.07);
 }
 
+/* Text gradient utilities */
 .text-gradient {
   background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .text-gradient-purple {
-  background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #8b5cf6 100%);
+  background: linear-gradient(130deg, #e2e8ff 0%, #c4b5fd 45%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Subtle image overlay glow */
-.image-glow {
+/* ======================================================
+   ANIMATIONS
+   ====================================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-fast {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-fade-in-fast {
+  animation: fade-in-fast 0.4s ease both;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ======================================================
+   LINK & INTERACTIVE STATES
+   ====================================================== */
+
+/* Elegant underline animation for inline links */
+.link-underline {
   position: relative;
+  display: inline-block;
 }
 
-.image-glow::after {
+.link-underline::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 120%, rgba(139, 92, 246, 0.12), transparent 70%);
-  pointer-events: none;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
 }
 
-/* Accessibility: Respect user motion preferences */
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ======================================================
+   FORM ELEMENTS
+   ====================================================== */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #0f0f14 inset;
+  -webkit-text-fill-color: #f4f4f5;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ======================================================
+   ACCESSIBILITY: prefers-reduced-motion
+   ====================================================== */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

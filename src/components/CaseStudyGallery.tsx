@@ -16,22 +16,22 @@ export default function CaseStudyGallery({
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-10 sm:gap-16 w-full">
+    <div className="flex flex-col gap-8 sm:gap-12 w-full">
       {images.map((img, index) => {
-        // Layout style depending on aspect ratio or index
         const isWide = img.aspect === "wide" || img.aspect === "full" || index === 0;
 
         return (
           <figure
             key={index}
-            className="flex flex-col gap-3 group relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/[0.06]"
+            className="flex flex-col gap-2 group relative overflow-hidden bg-zinc-950"
+            style={{ borderRadius: "4px" }}
           >
             <div
               className={`relative w-full overflow-hidden bg-zinc-900 ${
                 isWide
                   ? "aspect-[16/9] sm:aspect-[21/9]"
                   : img.aspect === "portrait"
-                  ? "aspect-[4/5] sm:aspect-[3/4] max-w-4xl mx-auto"
+                  ? "aspect-[4/5] sm:aspect-[3/4] max-w-3xl mx-auto"
                   : "aspect-[16/10]"
               }`}
             >
@@ -46,7 +46,7 @@ export default function CaseStudyGallery({
             </div>
 
             {img.caption && (
-              <figcaption className="px-6 py-3 text-xs text-zinc-400 font-light tracking-wide flex items-center justify-between border-t border-white/[0.04] bg-zinc-950/40">
+              <figcaption className="pt-2 text-[11px] text-zinc-500 font-light tracking-wide flex items-center justify-between">
                 <span>{img.caption}</span>
                 <span className="font-mono text-[10px] text-zinc-600">
                   {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}

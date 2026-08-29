@@ -31,7 +31,7 @@ export default function PortfolioFilters({
   return (
     <nav
       aria-label="Portfólió kategóriák"
-      className="flex items-center gap-6 sm:gap-10 overflow-x-auto pb-4 scrollbar-none border-b border-white/[0.08]"
+      className="flex items-center gap-6 sm:gap-8 overflow-x-auto pb-4 scrollbar-none border-b border-white/[0.08]"
     >
       {filterOptions.map((tab) => {
         const isActive = activeFilter === tab.id;
@@ -41,28 +41,26 @@ export default function PortfolioFilters({
           <button
             key={tab.id}
             onClick={() => onFilterChange(tab.id)}
-            className={`group relative py-2 text-xs sm:text-sm tracking-[0.18em] uppercase transition-all duration-300 whitespace-nowrap flex items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-violet-400 ${
+            className={`group relative py-2 text-[11px] sm:text-xs tracking-[0.22em] uppercase transition-colors duration-200 whitespace-nowrap flex items-center gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-violet-400 ${
               isActive
                 ? "text-white font-medium"
-                : "text-zinc-400 hover:text-zinc-200 font-light"
+                : "text-zinc-500 hover:text-zinc-300 font-normal"
             }`}
           >
             <span>{tab.label}</span>
             <span
-              className={`text-[10px] font-mono transition-opacity ${
+              className={`text-[10px] font-mono ${
                 isActive
-                  ? "text-violet-400 opacity-100"
-                  : "text-zinc-500 opacity-60 group-hover:opacity-100"
+                  ? "text-violet-400 font-semibold"
+                  : "text-zinc-600 group-hover:text-zinc-400"
               }`}
             >
-              ({count})
+              {count}
             </span>
 
             {/* Minimal Underline Indicator */}
-            {isActive ? (
-              <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-violet-500 via-violet-400 to-violet-300 rounded-full" />
-            ) : (
-              <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/0 group-hover:bg-white/20 transition-all" />
+            {isActive && (
+              <span className="absolute -bottom-4 left-0 right-0 h-[1.5px] bg-violet-400 rounded-full" />
             )}
           </button>
         );
