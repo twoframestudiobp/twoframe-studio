@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -13,6 +14,28 @@ import {
 } from "lucide-react";
 import { getFeaturedProjects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: siteConfig.defaultTitle,
+  description: siteConfig.defaultDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    url: siteConfig.url,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak",
+      },
+    ],
+  },
+};
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects().slice(0, 4);

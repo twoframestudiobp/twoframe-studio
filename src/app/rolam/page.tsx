@@ -3,10 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, ArrowRight, CheckCircle2, ShieldCheck, Eye, Flame } from "lucide-react";
 
-export const metadata = {
-  title: "Rólam | TwoFrame Studio",
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Rólam — Szabó Barnabás Kreatív Igazgató",
   description:
-    "Szabó Barnabás, a TwoFrame Studio alapítója és kreatív igazgatója. Vizuális történetmesélés, modern tartalomgyártás és hosszú távú kreatív partnerségek.",
+    "Szabó Barnabás, a TwoFrame Studio alapítója és kreatív igazgatója. Vizuális történetmesélés, modern tartalomkészítés és tartós kreatív partnerségek.",
+  alternates: {
+    canonical: "/rolam",
+  },
+  openGraph: {
+    title: "Rólam — Szabó Barnabás Kreatív Igazgató | TwoFrame Studio",
+    description:
+      "Szabó Barnabás, a TwoFrame Studio alapítója és kreatív igazgatója. Vizuális történetmesélés, modern tartalomkészítés és tartós kreatív partnerségek.",
+    url: `${siteConfig.url}/rolam`,
+    images: [
+      {
+        url: `${siteConfig.url}/portfolio/portrait/IMG_4579.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Szabó Barnabás — TwoFrame Studio",
+      },
+    ],
+  },
 };
 
 export default function AboutPage() {
@@ -18,8 +38,8 @@ export default function AboutPage() {
         <div className="lg:col-span-5 relative">
           <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">
             <Image
-              src="/images/IMG_4579.webp"
-              alt="Szabó Barnabás - TwoFrame Studio"
+              src="/portfolio/portrait/IMG_4579.webp"
+              alt="Szabó Barnabás — TwoFrame Studio Alapító & Kreatív Igazgató"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 40vw"

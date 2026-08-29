@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
+import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://twoframe.hu";
+  const baseUrl = siteConfig.url;
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

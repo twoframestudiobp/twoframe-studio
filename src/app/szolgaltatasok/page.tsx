@@ -13,10 +13,22 @@ import {
   Info,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Szolgáltatások | TwoFrame Studio",
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Szolgáltatások — Koncert-, Márka- és Portréfotózás",
   description:
-    "Live & Events koncertfotózás, Brands & Commercial videógyártás, Portrait & Editorial fotózás és havi Content Partnership együttműködések.",
+    "Live & Events koncertfotózás és aftermovie, Brands & Commercial tartalomgyártás, Portrait & Editorial portrék és havi Content Partnership együttműködések.",
+  alternates: {
+    canonical: "/szolgaltatasok",
+  },
+  openGraph: {
+    title: "Szolgáltatások — Koncert-, Márka- és Portréfotózás | TwoFrame Studio",
+    description:
+      "Live & Events koncertfotózás és aftermovie, Brands & Commercial tartalomgyártás, Portrait & Editorial portrék és havi Content Partnership együttműködések.",
+    url: `${siteConfig.url}/szolgaltatasok`,
+  },
 };
 
 const getServiceIcon = (id: string) => {

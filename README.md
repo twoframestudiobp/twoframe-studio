@@ -1,66 +1,68 @@
-# TwoFrame Studio — Hivatalos Weboldal & Ajánlatkérő Rendszer
+# TwoFrame Studio — Hivatalos Weboldal & Kreatív Rendszer
 
 > „Vizuális tartalom előadóknak, eseményeknek és márkáknak.”
 
-Prémium, modern kreatív stúdió weboldal szerkesztői (editorial) vizuális identitással, dinamikus esettanulmány (case study) rendszerrel és professzionális ajánlatkérő backenddel.
+Prémium, modern kreatív stúdió weboldal szerkesztői (editorial) vizuális identitással, dinamikus esettanulmány (case study) rendszerrel, teljes körű SEO & Core Web Vitals optimalizációval és Resend email integrációval.
 
 ---
 
-## ⚡️ Főbb Jellemzők
+## ⚡️ Főbb Jellemzők & Architektúra
 
+- **Keresőoptimalizálás (SEO) & Felfedezhetőség**:
+  - **Egyedi metaadatok minden oldalon**: Pontosan megtervezett címek (`<title>`), leírások (`<meta name="description">`) és kanonikus URL-ek (`rel="canonical"`).
+  - **Dinamikus Esettanulmány SEO (`/munkak/[slug]`)**: Automatikusan generált OpenGraph címkék, képek és leírások a `src/data/projects.ts` adatbázisból.
+  - **Strukturált Adatok (JSON-LD)**: Szabványos Schema.org `Organization`, `ProfessionalService` és `CreativeWork` jelölések a Google Rich Search találatokhoz.
+  - **Dinamikus Sitemap & Robots**: Automatikusan frissülő `sitemap.xml` és `robots.txt` az összes statikus és dinamikus oldal lefedésével.
+  - **Egyedi 404 Oldal (`/not-found`)**: Márkához illeszkedő, elegáns hibakezelés magyar nyelven.
+- **Képteljesítmény & Core Web Vitals (LCP, CLS, INP)**:
+  - Korszerű AVIF és WebP képtömörítés a Next.js Image pipeline segítségével.
+  - Reszponzív méretezés (`sizes`), hogy mobileszközökre ne töltődjenek le feleslegesen nagy felbontású desktop fotók.
+  - Prioritásos betöltés (`priority`) kizárólag a hajtás feletti (hero) nyitóképeknél, alatta tiszta lazy loading.
+  - `prefers-reduced-motion` akadálymentességi támogatás a mozgásérzékeny felhasználóknak.
 - **Szerkesztői Portfólió & Esettanulmányok (`/munkak`)**:
   - Minimalista kategóriaszűrők (**Összes**, **Live & Events**, **Commercial**, **Portré & Editorial**).
-  - Aszimmetrikus magazinszerű rács és dinamikus esettanulmány oldalak (`/munkak/[slug]`).
+  - Magazinszerű aszimmetrikus rács és részletes esettanulmány oldalak.
 - **Professzionális Ajánlatkérő Rendszer (`/kapcsolat`)**:
-  - Letisztult, gyors űrlap valós idejű és szerveroldali Zod validációval.
-  - Természetes magyar mezők és sávos költségkeret választó (*50e Ft alatt* .. *400e Ft felett*).
-  - URL alapú automatikus kategória-előválasztás (`/kapcsolat?tipus=concert` vagy `/kapcsolat?tipus=partnership`).
-  - Spamvédelem (láthatatlan honeypot mező, szerveroldali rate limiting és karakterkorlátok).
-  - Resend email kézbesítés közvetlen Reply-To beállítással a gyors válaszadáshoz.
-  - Helyi fejlesztői tesztmód: API kulcs hiányában az ajánlatkérések automatikusan a szerverterminálba naplózódnak.
+  - Zod validált űrlap valós idejű és szerveroldali hibajelzéssel, URL alapú kategória-előválasztással és spamvédelemmel (Honeypot + Rate Limit).
+  - Resend email kézbesítés közvetlen Reply-To beállítással.
 
 ---
 
-## 📬 Email Szolgáltató Konfigurációja (Resend)
+## 🌐 Domain & SEO Konfiguráció
 
-A kapcsolatfelvételi űrlap a modern, megbízható [Resend](https://resend.com) felhőalapú email szolgáltatást használja.
+A weboldal kanonikus alapértelmezett URL-je a `https://twoframe.hu`.
 
-### 1. Szükséges Környezeti Változók
-
-Hozz létre egy `.env.local` fájlt a projekt gyökerében a mellékelt [`.env.example`](file:///.env.example) alapján:
+Szükség esetén a kanonikus címet a `.env.local` fájlban vagy a tárhely környezeti változóiban állíthatod be:
 
 ```env
-# 1. Resend API kulcs (Regisztráció: https://resend.com -> API Keys)
+# Kanonikus weboldal URL (alapértelmezett: https://twoframe.hu)
+NEXT_PUBLIC_SITE_URL=https://twoframe.hu
+
+# Resend Email beállítások
 RESEND_API_KEY=re_123456789_abcdefg
-
-# 2. Címzett email cím (Ide érkeznek az ajánlatkérések)
 CONTACT_TO_EMAIL=kapcsolat@twoframe.hu
-
-# 3. Feladó email cím
-# Élesítés után a saját domained (pl. TwoFrame Studio <kapcsolat@twoframe.hu>)
-# Teszteléskor használható: TwoFrame Studio <onboarding@resend.dev>
 CONTACT_FROM_EMAIL=TwoFrame Studio <onboarding@resend.dev>
 ```
 
-### 2. Hogyan működik a helyi tesztelés (Dev Mode)?
-
-- Ha a `RESEND_API_KEY` **nincs megadva**, a rendszer nem dob hibát, hanem **fejlesztői módban** fut: az űrlap sikeres beküldést jelez a látogatónak, a szerverterminálban pedig formázva megjeleníti a beérkezett projekt adatait.
-- Ha a `RESEND_API_KEY` **be van állítva**, a rendszer valódi, biztonságosan formázott HTML és szöveges emailt küld a `CONTACT_TO_EMAIL` címre, a feladó válasz (Reply-To) címe pedig automatikusan az érdeklődő email címe lesz.
-
-### 3. A cél email cím módosítása
-
-A beérkező levelek címét bármikor megváltoztathatod a `CONTACT_TO_EMAIL` környezeti változó átírásával (pl. Vercel vagy egyéb hosting szolgáltató beállításaiban) anélkül, hogy a forráskódot módosítanod kellene.
+### Hol találhatók az alapértelmezett SEO beállítások?
+- **Globális SEO konstansok**: [`src/lib/site-config.ts`](file:///src/lib/site-config.ts)
+- **Főoldali Layout & JSON-LD**: [`src/app/layout.tsx`](file:///src/app/layout.tsx)
+- **Strukturált Adatok komponens**: [`src/components/JsonLd.tsx`](file:///src/components/JsonLd.tsx)
+- **Dinamikus Sitemap**: [`src/app/sitemap.ts`](file:///src/app/sitemap.ts)
+- **Robots szabályok**: [`src/app/robots.ts`](file:///src/app/robots.ts)
+- **Web App Manifest**: [`src/app/manifest.ts`](file:///src/app/manifest.ts)
 
 ---
 
 ## 🛠 Technológiai Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router, Server Actions & API Routes)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, Static Site Generation & Dynamic API Routes)
 - **Nyelv**: [TypeScript](https://www.typescriptlang.org/)
 - **Validáció**: [Zod](https://zod.dev/)
-- **Email Kézbesítés**: [Resend SDK](https://resend.com)
+- **Email Kézbesítés**: [Resend](https://resend.com)
 - **Stílusok**: [Tailwind CSS](https://tailwindcss.com/)
 - **Ikonok**: [Lucide React](https://lucide.dev/)
+- **Betűtípusok**: [Google Fonts](https://fonts.google.com/) (`next/font` Inter & Syne)
 
 ---
 
@@ -85,28 +87,41 @@ npm run start
 ## 📁 Projekt Struktúra
 
 ```
-├── public/portfolio/         # Portfólió képek kategóriák szerint
+├── public/
+│   ├── portfolio/            # Kategóriákra bontott portfólió fotók (live, commercial, portrait)
+│   ├── logo.png              # TwoFrame Studio logó és favicon
+│   └── CNAME                 # Egyedi domain (twoframe.hu)
 ├── src/
 │   ├── app/
-│   │   ├── api/
-│   │   │   └── contact/      # Resend email API végpont & spam szűrés
-│   │   ├── kapcsolat/        # Kapcsolat oldal és űrlap
-│   │   ├── munkak/           # Portfólió és dinamikus esettanulmányok ([slug])
+│   │   ├── api/contact/      # Resend email API végpont & spam szűrés
+│   │   ├── kapcsolat/        # Kapcsolat oldal & űrlap
+│   │   ├── munkak/           # Portfólió & dinamikus esettanulmányok ([slug])
 │   │   ├── szolgaltatasok/   # Szolgáltatásismertetők
 │   │   ├── rolam/            # Kreatív igazgató bemutatkozása
-│   │   └── page.tsx          # Főoldal
+│   │   ├── not-found.tsx     # Egyedi 404 hibaoldal
+│   │   ├── layout.tsx        # Fő layout, betűtípusok és JSON-LD
+│   │   ├── page.tsx          # Főoldal
+│   │   ├── sitemap.ts        # Dinamikus sitemap generátor
+│   │   ├── robots.ts         # Robots.txt szabályok
+│   │   └── manifest.ts       # Web app manifest
 │   ├── components/
-│   │   ├── InquiryForm.tsx   # Zod validált ajánlatkérő űrlap
+│   │   ├── JsonLd.tsx        # Schema.org strukturált adatkezelő
+│   │   ├── InquiryForm.tsx   # Ajánlatkérő űrlap
 │   │   ├── PortfolioFilters.tsx
 │   │   ├── PortfolioGrid.tsx
-│   │   └── CaseStudyGallery.tsx
+│   │   ├── PortfolioProject.tsx
+│   │   ├── CaseStudyGallery.tsx
+│   │   ├── ProjectNavigation.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Footer.tsx
 │   ├── data/
-│   │   ├── projects.ts       # Portfólió adatstruktúra
-│   │   └── services.ts       # Szolgáltatások adatstruktúra
+│   │   ├── projects.ts       # Portfólió és esettanulmány adatmodell
+│   │   └── services.ts       # Szolgáltatások adatmodell
 │   └── lib/
-│       ├── contact-schema.ts # Zod validációs séma és típusok
+│       ├── site-config.ts    # Központi SEO és weboldal konfiguráció
+│       ├── contact-schema.ts # Zod validációs séma
 │       └── utils.ts
-├── .env.example              # Minta környezeti változók
+├── .env.example
 └── README.md
 ```
 

@@ -1,11 +1,22 @@
 import React, { Suspense } from "react";
 import InquiryForm from "@/components/InquiryForm";
-import { Mail, Phone, MapPin, Sparkles, Clock } from "lucide-react";
+import { Sparkles, Mail, Phone, MapPin, Clock } from "lucide-react";
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata = {
-  title: "Kapcsolat | TwoFrame Studio",
+export const metadata: Metadata = {
+  title: "Kapcsolat — Projekt Ajánlatkérés",
   description:
-    "Dolgozzunk együtt. Mesélj röviden a projektről, és hamarosan jelentkezem a részletekkel. TwoFrame Studio Budapest.",
+    "Dolgozzunk együtt. Kérj egyedi árajánlatot koncert-, esemény-, márka- vagy portréfotózásra, videógyártásra vagy havi tartalompartnerségre.",
+  alternates: {
+    canonical: "/kapcsolat",
+  },
+  openGraph: {
+    title: "Kapcsolat — Projekt Ajánlatkérés | TwoFrame Studio",
+    description:
+      "Dolgozzunk együtt. Kérj egyedi árajánlatot koncert-, esemény-, márka- vagy portréfotózásra, videógyártásra vagy havi tartalompartnerségre.",
+    url: `${siteConfig.url}/kapcsolat`,
+  },
 };
 
 export default function ContactPage() {

@@ -20,6 +20,9 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import { siteConfig } from "@/lib/site-config";
+import JsonLd from "@/components/JsonLd";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -38,24 +41,39 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Projekt Nem Található | TwoFrame Studio",
+      title: "Projekt Nem Található",
     };
   }
 
+  const imageUrl = project.coverImage?.startsWith("http")
+    ? project.coverImage
+    : `${siteConfig.url}${project.coverImage || project.image}`;
+
   return {
-    title: `${project.title} — ${project.categoryLabel} | TwoFrame Studio`,
+    title: `${project.title} — ${project.categoryLabel}`,
     description: project.shortDescription,
+    alternates: {
+      canonical: `/munkak/${project.slug}`,
+    },
     openGraph: {
-      title: `${project.title} | TwoFrame Studio`,
+      type: "article",
+      title: `${project.title} — ${project.categoryLabel} | TwoFrame Studio`,
       description: project.shortDescription,
+      url: `${siteConfig.url}/munkak/${project.slug}`,
       images: [
         {
-          url: project.coverImage || project.image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: project.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | TwoFrame Studio`,
+      description: project.shortDescription,
+      images: [imageUrl],
     },
   };
 }
@@ -70,8 +88,36 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   const { prevProject, nextProject } = getAdjacentProjects(project.slug);
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    headline: project.title,
+    description: project.shortDescription,
+    image: project.coverImage?.startsWith("http")
+      ? project.coverImage
+      : `${siteConfig.url}${project.coverImage || project.image}`,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    creator: {
+      "@type": "Person",
+      name: siteConfig.creator,
+    },
+    datePublished: project.year,
+    genre: project.categoryLabel,
+    keywords: project.services.join(", "),
+    locationCreated: {
+      "@type": "Place",
+      name: project.location,
+    },
+  };
+
   return (
     <article className="min-h-screen pt-28 sm:pt-36 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full flex flex-col">
+      <JsonLd data={projectSchema} />
       {/* Back to all works */}
       <div className="mb-8">
         <Link
