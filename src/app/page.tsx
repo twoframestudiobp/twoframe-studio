@@ -66,11 +66,13 @@ export default function HomePage() {
         {/* Full-bleed background image — brighter so photography is visible */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/portfolio/commercial/IMG_4565.webp"
-            alt="TwoFrame Studio — Vizuális Tartalom"
+            src="/images/hero-desktop.webp"
+            alt="TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
+            quality={75}
             className="object-cover object-center"
           />
           {/* Gradient: heavy bottom blend into page, lighter top to keep image visible */}

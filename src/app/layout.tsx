@@ -97,6 +97,14 @@ export default function RootLayout({
   return (
     <html lang={siteConfig.language} className={`${inter.variable} ${syne.variable}`}>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-desktop.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+        <link rel="help" type="text/plain" href="/llms.txt" />
         <JsonLd />
       </head>
       <body className="bg-[#08080a] text-zinc-100 antialiased min-h-screen flex flex-col selection:bg-violet-600/30 selection:text-white">

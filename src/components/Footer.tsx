@@ -31,8 +31,8 @@ export default function Footer() {
               Vizuális tartalom előadóknak, eseményeknek és márkáknak.
             </p>
 
-            <div className="flex items-center gap-3 text-[11px] tracking-wider text-zinc-500">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <div className="flex items-center gap-3 text-[11px] tracking-wider text-zinc-400">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Elérhető új projektekre • 2026</span>
             </div>
           </div>
@@ -116,23 +116,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar with Legal Links */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
           <div className="flex flex-wrap items-center gap-4">
             <span>© {new Date().getFullYear()} TwoFrame Studio. Minden jog fenntartva.</span>
-            <span className="text-zinc-700 hidden sm:inline">&bull;</span>
-            <Link href="/aszf" className="hover:text-zinc-300 transition-colors">
+            <span className="text-zinc-600 hidden sm:inline">&bull;</span>
+            <Link href="/aszf" className="hover:text-white transition-colors">
               ÁSZF
             </Link>
-            <span className="text-zinc-700">&bull;</span>
-            <Link href="/adatkezeles" className="hover:text-zinc-300 transition-colors">
+            <span className="text-zinc-600">&bull;</span>
+            <Link href="/adatkezeles" className="hover:text-white transition-colors">
               Adatkezelési Tájékoztató
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://twoframe.hu" className="hover:text-zinc-300 transition-colors tracking-wider">
+            <a href="https://twoframe.hu" className="hover:text-white transition-colors tracking-wider">
               twoframe.hu
             </a>
-            <span className="text-zinc-700">/</span>
+            <span className="text-zinc-600">/</span>
             <span>Alapító: Szabó Barnabás</span>
           </div>
         </div>
