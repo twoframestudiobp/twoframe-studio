@@ -100,8 +100,17 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
+          href="/images/hero-mobile.webp"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
           href="/images/hero-desktop.webp"
           type="image/webp"
+          media="(min-width: 769px)"
           fetchPriority="high"
         />
         <link rel="help" type="text/plain" href="/llms.txt" />

@@ -64,20 +64,20 @@ export default function HomePage() {
           ═══════════════════════════════════════ */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden pb-20 sm:pb-28">
         {/* Full-bleed background image — brighter so photography is visible */}
-        <div className="absolute inset-0 z-0">
-          <Image
+        <picture className="absolute inset-0 z-0 w-full h-full">
+          <source media="(max-width: 768px)" srcSet="/images/hero-mobile.webp" type="image/webp" />
+          <source media="(min-width: 769px)" srcSet="/images/hero-desktop.webp" type="image/webp" />
+          <img
             src="/images/hero-desktop.webp"
             alt="TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak"
-            fill
-            priority
             fetchPriority="high"
-            sizes="100vw"
-            quality={75}
-            className="object-cover object-center"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Gradient: heavy bottom blend into page, lighter top to keep image visible */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/55 to-[#08080a]/15" />
-        </div>
+        </picture>
+        {/* Gradient: heavy bottom blend into page, lighter top to keep image visible */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#08080a] via-[#08080a]/55 to-[#08080a]/15" />
 
         {/* Content — anchored to bottom */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8">
