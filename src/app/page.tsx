@@ -82,21 +82,21 @@ export default function HomePage() {
         {/* Content — anchored to bottom */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8">
           {/* Location tag */}
-          <div className="mb-6 animate-fade-in">
+          <div className="mb-6">
             <span className="text-[11px] uppercase tracking-[0.3em] text-zinc-400 font-medium">
               TwoFrame Studio &ensp;/&ensp; Budapest
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-light tracking-tight text-white leading-[1.02] mb-6 animate-slide-up max-w-4xl">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-light tracking-tight text-white leading-[1.02] mb-6 max-w-4xl">
             Vizuális tartalom<br />
             <span className="text-gradient-purple">előadóknak,</span>{" "}
             eseményeknek<br className="hidden sm:inline" /> és márkáknak.
           </h1>
 
           {/* Supporting line + CTAs */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 animate-slide-up delay-200">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
             <p className="text-sm sm:text-base text-zinc-400 font-light max-w-sm leading-relaxed">
               Fotó, videó és kreatív tartalom,<br />
               amely azonnal megkülönbözteti a márkádat.
