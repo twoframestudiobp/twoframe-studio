@@ -68,11 +68,13 @@ export default function HomePage() {
           <source media="(max-width: 768px)" srcSet="/images/hero-mobile.webp" type="image/webp" />
           <source media="(min-width: 769px)" srcSet="/images/hero-desktop.webp" type="image/webp" />
           <img
-            src="/images/hero-desktop.webp"
+            src="/images/hero-mobile.webp"
             alt="TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak"
             fetchPriority="high"
             loading="eager"
             decoding="async"
+            width={400}
+            height={600}
             className="w-full h-full object-cover object-center"
           />
         </picture>
@@ -155,7 +157,7 @@ export default function HomePage() {
             <ProjectCard
               key={project.slug}
               project={project}
-              priority={idx < 2}
+              priority={false}
               tall={idx === 0}
             />
           ))}
