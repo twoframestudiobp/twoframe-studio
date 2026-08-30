@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, Sparkles } from "lucide-react";
 
 const navLinks = [
   { href: "/munkak", label: "Munkák" },
@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/[0.06]">
 
           {/* Brand Column */}
-          <div className="md:col-span-5 flex flex-col gap-5">
+          <div className="md:col-span-4 flex flex-col gap-5">
             <Link href="/" className="flex flex-col leading-none w-max" aria-label="TwoFrame Studio — Főoldal">
               <span className="font-semibold tracking-[0.18em] text-sm uppercase text-white">
                 TwoFrame
@@ -53,33 +53,43 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Column */}
-          <div className="md:col-span-2 flex flex-col gap-4">
+          {/* Divisions Column */}
+          <div className="md:col-span-3 flex flex-col gap-4">
             <h4 className="text-[11px] uppercase tracking-[0.22em] text-zinc-300 font-medium">
-              Kategóriák
+              Márkacsalád &amp; Divíziók
             </h4>
-            <ul className="flex flex-col gap-2.5 text-sm">
-              <li>
-                <Link href="/szolgaltatasok#live-events" className="hover:text-white transition-colors duration-200">
-                  Live &amp; Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/szolgaltatasok#brands-commercial" className="hover:text-white transition-colors duration-200">
-                  Commercial
-                </Link>
-              </li>
-              <li>
-                <Link href="/szolgaltatasok#portrait-editorial" className="hover:text-white transition-colors duration-200">
-                  Portré &amp; Editorial
-                </Link>
-              </li>
-              <li>
-                <Link href="/szolgaltatasok#content-partnership" className="hover:text-violet-400 transition-colors duration-200">
-                  Content Partnership
-                </Link>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://twoframestudiobp.github.io/twoframe-agency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-purple-950/20 border border-purple-800/40 hover:border-purple-600/60 transition-all duration-200 group"
+              >
+                <div className="flex items-center justify-between gap-1 mb-0.5">
+                  <span className="text-xs font-semibold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-purple-400" />
+                    TwoFrame Agency
+                  </span>
+                  <ArrowUpRight className="w-3 h-3 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+                <p className="text-[11px] text-zinc-400 leading-tight">
+                  Modell- és talentképviseleti divízió
+                </p>
+              </a>
+
+              <ul className="flex flex-col gap-2 text-xs text-zinc-400 pt-1">
+                <li>
+                  <Link href="/szolgaltatasok#live-events" className="hover:text-white transition-colors">
+                    Live &amp; Events Produkció
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/szolgaltatasok#brands-commercial" className="hover:text-white transition-colors">
+                    Brands &amp; Commercial
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Contact Column */}

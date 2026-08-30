@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { href: "/munkak", label: "Munkák" },
@@ -61,7 +61,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Főnavigáció">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-8" aria-label="Főnavigáció">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
             return (
@@ -81,6 +81,17 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* TwoFrame Agency Division Link */}
+          <a
+            href="https://twoframestudiobp.github.io/twoframe-agency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase tracking-[0.2em] font-medium text-purple-300 bg-purple-950/40 border border-purple-800/50 hover:bg-purple-900/60 hover:text-white transition-all duration-200 group"
+          >
+            <span>Agency</span>
+            <ArrowUpRight className="w-3 h-3 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
         </nav>
 
         {/* Desktop CTA */}
@@ -135,6 +146,17 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Mobile Agency Link */}
+            <a
+              href="https://twoframestudiobp.github.io/twoframe-agency"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-4 text-2xl font-light tracking-tight border-b border-white/[0.06] text-purple-300 hover:text-white flex items-center justify-between"
+            >
+              <span>TwoFrame Agency</span>
+              <ArrowUpRight className="w-5 h-5 text-purple-400" />
+            </a>
           </nav>
 
           <div className="mt-auto pt-8 flex flex-col gap-3">

@@ -1,124 +1,66 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { getFeaturedProjects } from "@/data/projects";
+import { services } from "@/data/services";
 import ProjectCard from "@/components/ProjectCard";
-import { siteConfig } from "@/lib/site-config";
+import { ArrowRight, ArrowUpRight, Sparkles, Users, Camera, Film } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: siteConfig.defaultTitle,
-  description: siteConfig.defaultDescription,
+  title: "TwoFrame Studio — Vizuális Tartalom Előadóknak, Eseményeknek és Márkáknak",
+  description:
+    "Koncertfotózás, aftermovie videók, márkakampányok és havi Content Partnership együttműködések Budapestről. Professzionális vizuális megoldások előadóknak és rendezvényeknek.",
   alternates: { canonical: "/" },
-  openGraph: {
-    title: siteConfig.defaultTitle,
-    description: siteConfig.defaultDescription,
-    url: siteConfig.url,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: "TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak",
-      },
-    ],
-  },
 };
 
-const services = [
-  {
-    num: "01",
-    label: "Live & Events",
-    title: "Koncertek és Események",
-    desc: "Színpadi energiák, backstage pillanatok és magával ragadó aftermovie-k.",
-    href: "/szolgaltatasok#live-events",
-    query: "concert",
-  },
-  {
-    num: "02",
-    label: "Brands & Commercial",
-    title: "Márkák és Kampányok",
-    desc: "Filmes hatású imázsvideók és social kampányok a konverziók növeléséért.",
-    href: "/szolgaltatasok#brands-commercial",
-    query: "commercial",
-  },
-  {
-    num: "03",
-    label: "Portré & Editorial",
-    title: "Portré és Editorial",
-    desc: "Erőteljes, letisztult portrék előadóknak, lemezborítókra és sajtóanyagokhoz.",
-    href: "/szolgaltatasok#portrait-editorial",
-    query: "portrait",
-  },
-];
-
 export default function HomePage() {
-  const featuredProjects = getFeaturedProjects().slice(0, 4);
+  const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className="flex flex-col w-full">
-
+    <div className="flex flex-col min-h-screen">
       {/* ═══════════════════════════════════════
-          HERO
+          HERO SECTION — Full bleed, minimalist typography
           ═══════════════════════════════════════ */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden pb-20 sm:pb-28">
-        {/* Full-bleed background image — brighter so photography is visible */}
-        <picture className="absolute inset-0 z-0 w-full h-full">
-          <source media="(max-width: 768px)" srcSet="/images/hero-mobile.webp" type="image/webp" />
-          <source media="(min-width: 769px)" srcSet="/images/hero-desktop.webp" type="image/webp" />
-          <img
-            src="/images/hero-mobile.webp"
-            alt="TwoFrame Studio — Vizuális Tartalom Előadóknak és Márkáknak"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width={400}
-            height={600}
-            className="w-full h-full object-cover object-center"
-          />
-        </picture>
-        {/* Gradient: heavy bottom blend into page, lighter top to keep image visible */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#08080a] via-[#08080a]/55 to-[#08080a]/15" />
+      <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-end px-6 sm:px-8 pb-16 pt-32 max-w-7xl mx-auto w-full">
+        {/* Ambient subtle glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-        {/* Content — anchored to bottom */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8">
-          {/* Location tag */}
-          <div className="mb-6">
-            <span className="text-[11px] uppercase tracking-[0.3em] text-zinc-400 font-medium">
-              TwoFrame Studio &ensp;/&ensp; Budapest
-            </span>
+        <div className="flex flex-col max-w-4xl animate-fade-in">
+          {/* Availability pill */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-400 text-[11px] font-mono tracking-wider uppercase mb-8 w-max">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Elérhető új projektekre • 2026</span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-light tracking-tight text-white leading-[1.02] mb-6 max-w-4xl">
-            Vizuális tartalom<br />
-            <span className="text-gradient-purple">előadóknak,</span>{" "}
-            eseményeknek<br className="hidden sm:inline" /> és márkáknak.
+          {/* Main Statement Headline */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white tracking-tight leading-[1.08] mb-8">
+            Vizuális tartalom <br />
+            <span className="text-zinc-400 font-normal">előadóknak, eseményeknek</span> <br />
+            és márkáknak.
           </h1>
 
-          {/* Supporting line + CTAs */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
-            <p className="text-sm sm:text-base text-zinc-400 font-light max-w-sm leading-relaxed">
-              Fotó, videó és kreatív tartalom,<br />
-              amely azonnal megkülönbözteti a márkádat.
-            </p>
+          <p className="text-base sm:text-lg text-zinc-400 font-light max-w-xl leading-relaxed mb-10">
+            Koncertfotózás, turnéfilmek, kreatív portrék és márkaépítés.
+            Olyan képkockák, amelyek megőrzik a pillanat nyers energiáját.
+          </p>
 
-            <div className="flex items-center gap-4 shrink-0">
-              <Link
-                href="/kapcsolat"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white text-zinc-950 hover:bg-violet-100 transition-all duration-300"
-              >
-                Kérj ajánlatot
-              </Link>
-              <Link
-                href="/munkak"
-                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-zinc-300 hover:text-white transition-colors group"
-              >
-                <span>Munkáink</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </Link>
-            </div>
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/munkak"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white text-zinc-950 hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5"
+            >
+              <span>Munkák megtekintése</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/kapcsolat"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.22em] border border-white/15 text-white hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
+            >
+              <span>Kapcsolatfelvétel</span>
+            </Link>
           </div>
         </div>
 
@@ -165,7 +107,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          SERVICES — Editorial horizontal list, NOT cards
+          SERVICES — Editorial horizontal list
           ═══════════════════════════════════════ */}
       <section className="border-t border-white/[0.07] bg-[#0a0a0e]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 py-24">
@@ -182,22 +124,22 @@ export default function HomePage() {
           {/* Horizontal list — editorial style */}
           <div className="divide-y divide-white/[0.07]">
             {services.map((s) => (
-              <div key={s.num} className="group grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-center py-8 sm:py-10">
+              <div key={s.id} className="group grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-center py-8 sm:py-10">
                 <span className="sm:col-span-1 text-[11px] font-mono text-zinc-600 tracking-widest group-hover:text-violet-400 transition-colors">
-                  {s.num}
+                  {s.number}
                 </span>
                 <div className="sm:col-span-3">
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-zinc-500 font-medium">{s.label}</span>
+                  <span className="text-[11px] uppercase tracking-[0.22em] text-zinc-500 font-medium">{s.title}</span>
                 </div>
                 <h3 className="sm:col-span-4 text-lg sm:text-xl font-light text-white group-hover:text-zinc-100 transition-colors">
-                  {s.title}
+                  {s.tagline}
                 </h3>
                 <p className="sm:col-span-3 text-sm text-zinc-500 font-light leading-relaxed">
-                  {s.desc}
+                  {s.description.slice(0, 110)}...
                 </p>
                 <div className="sm:col-span-1 flex justify-end">
                   <Link
-                    href={s.href}
+                    href={`/szolgaltatasok#${s.id}`}
                     className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-zinc-400 group-hover:bg-violet-600 group-hover:border-violet-500 group-hover:text-white transition-all duration-300"
                     aria-label={`${s.title} — részletek`}
                   >
@@ -208,7 +150,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Content Partnership callout — below list, not a glassy SaaS card */}
+          {/* Content Partnership callout */}
           <div className="mt-16 pt-10 border-t border-white/[0.07] flex flex-col sm:flex-row sm:items-center justify-between gap-8">
             <div className="max-w-lg">
               <span className="text-[11px] uppercase tracking-[0.28em] text-violet-400 font-medium block mb-3">
@@ -231,6 +173,82 @@ export default function HomePage() {
               </Link>
               <span className="text-[11px] text-zinc-500">Egyedi havi konstrukciók</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          TWOFRAME AGENCY — Model & Talent Division Showcase
+          ═══════════════════════════════════════ */}
+      <section className="py-24 px-6 sm:px-8 max-w-7xl mx-auto w-full">
+        <div className="p-8 sm:p-14 rounded-3xl bg-gradient-to-br from-purple-950/30 via-[#0e0e14] to-[#08080a] border border-purple-800/40 shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/50 text-purple-300 text-[10px] sm:text-xs font-mono uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+                <span>Márkadivízió · TwoFrame Agency</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+                Arcok. Karakterek. <br />
+                <span className="text-purple-300 font-normal">Lehetőségek.</span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed max-w-xl">
+                A <strong>TwoFrame Agency</strong> a TwoFrame Studio modell- és talentképviseleti divíziója. Összekapcsoljuk a tehetségek menedzsmentjét a prémium vizuális tartalomgyártással.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div className="p-3.5 rounded-xl bg-black/40 border border-white/5">
+                  <Users className="w-4 h-4 text-purple-400 mb-1.5" />
+                  <div className="text-xs font-medium text-white">Modellképviselet</div>
+                  <div className="text-[10px] text-zinc-400">Fashion &amp; Commercial</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-black/40 border border-white/5">
+                  <Camera className="w-4 h-4 text-purple-400 mb-1.5" />
+                  <div className="text-xs font-medium text-white">Portfóliógyártás</div>
+                  <div className="text-[10px] text-zinc-400">TwoFrame Stúdió háttér</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-black/40 border border-white/5">
+                  <Film className="w-4 h-4 text-purple-400 mb-1.5" />
+                  <div className="text-xs font-medium text-white">Célzott Casting</div>
+                  <div className="text-[10px] text-zinc-400">Márkáknak &amp; Stáboknak</div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href="https://twoframestudiobp.github.io/twoframe-agency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300 shadow-lg shadow-purple-950/50"
+                >
+                  <span>TwoFrame Agency megnyitása</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/80 border border-purple-900/30 text-center space-y-4">
+                <div className="text-[11px] font-mono text-purple-400 uppercase tracking-widest">
+                  TWOFRAME ÖKOSZISZTÉMA
+                </div>
+                <div className="text-2xl font-bold text-white tracking-tight">
+                  Studio + Agency
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed font-light">
+                  A kreatív vizuális tartalomgyártás és a professzionális karakterképviselet egyetlen integrált rendszerben.
+                </p>
+                <div className="pt-2">
+                  <span className="text-[10px] text-purple-300 font-mono px-3 py-1 rounded-full bg-purple-950/60 border border-purple-800/40">
+                    twoframe-agency.hu / agency.twoframe.hu
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/data/services";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                   <p className="text-sm text-zinc-300 font-light">{service.forWhom}</p>
                 </div>
 
-                {/* Deliverables — simple list, no icon boxes */}
+                {/* Deliverables — simple list */}
                 <div>
                   <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500 font-medium block mb-3">
                     Tartalmak &amp; Formátumok
@@ -133,6 +133,32 @@ export default function ServicesPage() {
             </div>
           </section>
         ))}
+      </div>
+
+      {/* TwoFrame Agency Talent Division Banner */}
+      <div className="mt-12 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-purple-950/30 via-zinc-900/60 to-zinc-950/80 border border-purple-800/40 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="space-y-3 max-w-xl">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-purple-400 uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Márkadivízió · Talent &amp; Casting</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Modellek és arcok a projektedhez?
+          </h2>
+          <p className="text-sm text-zinc-300 font-light leading-relaxed">
+            A <strong>TwoFrame Agency</strong> révén nemcsak a fotózást és forgatást valósítjuk meg, hanem a castingot és modellképviseletet is biztosítjuk a márkád számára.
+          </p>
+        </div>
+
+        <a
+          href="https://twoframestudiobp.github.io/twoframe-agency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300 shadow-lg shrink-0"
+        >
+          <span>TwoFrame Agency megnyitása</span>
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
       </div>
 
       {/* Bottom CTA */}
