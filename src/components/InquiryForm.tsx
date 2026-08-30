@@ -35,7 +35,6 @@ export default function InquiryForm() {
     budget: "" as BudgetRange | "",
     socialOrWebsite: "",
     description: "",
-    company_fax_hp: "", // Honeypot field
   });
 
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -102,7 +101,6 @@ export default function InquiryForm() {
       return;
     }
 
-    // If valid, let the standard POST submission proceed directly to FormSubmit
     setIsSubmitting(true);
   };
 
@@ -119,7 +117,6 @@ export default function InquiryForm() {
       budget: "",
       socialOrWebsite: "",
       description: "",
-      company_fax_hp: "",
     });
     setFieldErrors({});
     setGeneralError(null);
@@ -180,9 +177,14 @@ export default function InquiryForm() {
       >
         {/* FormSubmit Configuration Fields */}
         <input type="hidden" name="_next" value="https://twoframe.hu/kapcsolat?sikeres=1" />
-        <input type="hidden" name="_subject" value={`Új TwoFrame ajánlatkérés – ${formData.name || "Weboldal"}`} />
-        <input type="hidden" name="_template" value="table" />
+        <input
+          type="hidden"
+          name="_subject"
+          value={`🎬 Új TwoFrame Ajánlatkérés: ${formData.name || "Érdeklődő"} – ${formData.projectType}`}
+        />
+        <input type="hidden" name="_template" value="box" />
         <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_replyto" value={formData.email} />
 
         {/* Honeypot field for bot protection */}
         <input type="text" name="_honey" style={{ display: "none" }} />
@@ -210,13 +212,16 @@ export default function InquiryForm() {
             </label>
             <input
               id="name"
-              name="name"
+              name="👤 Ügyfél Neve"
               type="text"
               required
               aria-required="true"
               placeholder="Pl. Kovács Péter"
               value={formData.name}
-              onChange={handleChange}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, name: e.target.value }));
+                if (fieldErrors.name) setFieldErrors((prev) => ({ ...prev, name: "" }));
+              }}
               disabled={isSubmitting}
               className={`w-full bg-[#121217] border rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none transition-colors ${
                 fieldErrors.name
@@ -242,13 +247,16 @@ export default function InquiryForm() {
             </label>
             <input
               id="email"
-              name="email"
+              name="📧 Email Cím"
               type="email"
               required
               aria-required="true"
               placeholder="peter@pelda.hu"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, email: e.target.value }));
+                if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: "" }));
+              }}
               disabled={isSubmitting}
               className={`w-full bg-[#121217] border rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none transition-colors ${
                 fieldErrors.email
@@ -274,11 +282,11 @@ export default function InquiryForm() {
             </label>
             <input
               id="phone"
-              name="phone"
+              name="📞 Telefonszám"
               type="tel"
               placeholder="+36 30 123 4567"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
               disabled={isSubmitting}
               className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
             />
@@ -295,11 +303,11 @@ export default function InquiryForm() {
             </label>
             <input
               id="clientName"
-              name="clientName"
+              name="🏢 Cég / Előadó / Brand"
               type="text"
               placeholder="Pl. Zenekar, Brand vagy Vállalkozás"
               value={formData.clientName}
-              onChange={handleChange}
+              onChange={(e) => setFormData((prev) => ({ ...prev, clientName: e.target.value }))}
               disabled={isSubmitting}
               className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
             />
@@ -317,9 +325,9 @@ export default function InquiryForm() {
             <div className="relative">
               <select
                 id="projectType"
-                name="projectType"
+                name="🎬 Projekt Típusa"
                 value={formData.projectType}
-                onChange={handleChange}
+                onChange={(e) => setFormData((prev) => ({ ...prev, projectType: e.target.value as ProjectType }))}
                 disabled={isSubmitting}
                 className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors appearance-none cursor-pointer"
               >
@@ -349,9 +357,9 @@ export default function InquiryForm() {
             <div className="relative">
               <select
                 id="budget"
-                name="budget"
+                name="💰 Költségkeret"
                 value={formData.budget}
-                onChange={handleChange}
+                onChange={(e) => setFormData((prev) => ({ ...prev, budget: e.target.value as BudgetRange }))}
                 disabled={isSubmitting}
                 className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors appearance-none cursor-pointer"
               >
@@ -383,11 +391,11 @@ export default function InquiryForm() {
             </label>
             <input
               id="date"
-              name="date"
+              name="📅 Időpont / Dátum"
               type="text"
               placeholder="Pl. 2026. tavasz / Konkrét dátum"
               value={formData.date}
-              onChange={handleChange}
+              onChange={(e) => setFormData((prev) => ({ ...prev, date: e.target.value }))}
               disabled={isSubmitting}
               className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
             />
@@ -404,11 +412,11 @@ export default function InquiryForm() {
             </label>
             <input
               id="location"
-              name="location"
+              name="📍 Helyszín"
               type="text"
               placeholder="Pl. Budapest / Stúdió / Egyéb város"
               value={formData.location}
-              onChange={handleChange}
+              onChange={(e) => setFormData((prev) => ({ ...prev, location: e.target.value }))}
               disabled={isSubmitting}
               className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
             />
@@ -426,11 +434,11 @@ export default function InquiryForm() {
           </label>
           <input
             id="socialOrWebsite"
-            name="socialOrWebsite"
+            name="🔗 Instagram / Web"
             type="text"
             placeholder="instagram.com/felhasznalonev vagy weboldalcim.hu"
             value={formData.socialOrWebsite}
-            onChange={handleChange}
+            onChange={(e) => setFormData((prev) => ({ ...prev, socialOrWebsite: e.target.value }))}
             disabled={isSubmitting}
             className="w-full bg-[#121217] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors"
           />
@@ -447,13 +455,16 @@ export default function InquiryForm() {
           </label>
           <textarea
             id="description"
-            name="description"
+            name="📝 Projekt Leírása"
             required
             aria-required="true"
             rows={5}
             placeholder="Mesélj az elképzelésedről, a céljaidról, a kért formátumokról (fotó, videó, social anyagok)..."
             value={formData.description}
-            onChange={handleChange}
+            onChange={(e) => {
+              setFormData((prev) => ({ ...prev, description: e.target.value }));
+              if (fieldErrors.description) setFieldErrors((prev) => ({ ...prev, description: "" }));
+            }}
             disabled={isSubmitting}
             className={`w-full bg-[#121217] border rounded-xl p-4 text-sm text-white placeholder-zinc-500 focus:outline-none transition-colors leading-relaxed resize-y min-h-[120px] ${
               fieldErrors.description
