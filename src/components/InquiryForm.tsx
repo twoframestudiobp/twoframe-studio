@@ -10,8 +10,6 @@ import {
   ArrowRight,
   Loader2,
   RefreshCw,
-  Mail,
-  Phone,
 } from "lucide-react";
 import {
   PROJECT_TYPES,
@@ -24,6 +22,7 @@ import {
 
 export default function InquiryForm() {
   const searchParams = useSearchParams();
+  const isUrlSuccess = searchParams.get("sikeres") === "1" || searchParams.get("success") === "true";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -42,7 +41,13 @@ export default function InquiryForm() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(isUrlSuccess);
+
+  useEffect(() => {
+    if (isUrlSuccess) {
+      setIsSuccess(true);
+    }
+  }, [isUrlSuccess]);
 
   useEffect(() => {
     const tipusParam = searchParams.get("tipus") || searchParams.get("service") || searchParams.get("type");
@@ -81,14 +86,11 @@ export default function InquiryForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setGeneralError(null);
-    setFieldErrors({});
-
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // 1. Client-side validation using Zod
     const validation = contactFormSchema.safeParse(formData);
     if (!validation.success) {
+      e.preventDefault();
       const errors: Record<string, string> = {};
       validation.error.issues.forEach((err) => {
         if (err.path[0]) {
@@ -96,71 +98,12 @@ export default function InquiryForm() {
         }
       });
       setFieldErrors(errors);
-      setGeneralError("Kérjük, javítsd a kiemelt mezőkben lévő hibákat a küldéshez.");
+      setGeneralError("Kérjük, töltsd ki a kötelező mezőket a küldéshez.");
       return;
     }
 
-    // Honeypot check (bot protection)
-    if (formData.company_fax_hp && formData.company_fax_hp.length > 0) {
-      setIsSuccess(true);
-      return;
-    }
-
+    // If valid, let the standard POST submission proceed directly to FormSubmit
     setIsSubmitting(true);
-
-    try {
-      // Send to FormSubmit for static hosting delivery to kapcsolat@twoframe.hu
-      const payload = {
-        _subject: `Új TwoFrame ajánlatkérés: ${formData.name} (${formData.projectType})`,
-        _template: "table",
-        _captcha: "false",
-        "Név": formData.name,
-        "Email cím": formData.email,
-        "Telefonszám": formData.phone || "Nincs megadva",
-        "Cég / Előadó": formData.clientName || "Nincs megadva",
-        "Projekt típusa": formData.projectType,
-        "Tervezett időpont": formData.date || "Nincs megadva",
-        "Helyszín": formData.location || "Nincs megadva",
-        "Költségkeret": formData.budget || "Nincs megadva",
-        "Instagram / Web": formData.socialOrWebsite || "Nincs megadva",
-        "Projekt leírása": formData.description,
-      };
-
-      const res = await fetch("https://formsubmit.co/ajax/kapcsolat@twoframe.hu", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (res.ok) {
-        setIsSuccess(true);
-      } else {
-        // Fallback: If network or third-party blocked, try local API or show fallback
-        try {
-          const localRes = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-          });
-          if (localRes.ok) {
-            setIsSuccess(true);
-          } else {
-            setIsSuccess(true); // Still show success so user data is preserved
-          }
-        } catch {
-          setIsSuccess(true);
-        }
-      }
-      setIsSubmitting(false);
-    } catch (err) {
-      console.warn("Form submit warning:", err);
-      // Even on cross-origin warning, show success and mailto backup
-      setIsSuccess(true);
-      setIsSubmitting(false);
-    }
   };
 
   const handleReset = () => {
@@ -198,7 +141,7 @@ export default function InquiryForm() {
           </h2>
 
           <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-            Megkaptuk a projekt részleteit. 24 órán belül felvesszük veled a kapcsolatot a megadott e-mail címen ({formData.email || "kapcsolat@twoframe.hu"}).
+            Megkaptuk az ajánlatkérésed részleteit. 24 órán belül felvesszük veled a kapcsolatot a megadott elérhetőségeken!
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -229,20 +172,20 @@ export default function InquiryForm() {
       {/* Subtle Purple Background Glow */}
       <div className="absolute -top-24 -right-24 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8 relative z-10">
-        {/* Hidden Honeypot field for bot protection */}
-        <div style={{ display: "none" }} aria-hidden="true">
-          <label htmlFor="company_fax_hp">Do not fill this</label>
-          <input
-            type="text"
-            id="company_fax_hp"
-            name="company_fax_hp"
-            tabIndex={-1}
-            autoComplete="off"
-            value={formData.company_fax_hp}
-            onChange={handleChange}
-          />
-        </div>
+      <form
+        action="https://formsubmit.co/kapcsolat@twoframe.hu"
+        method="POST"
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-8 relative z-10"
+      >
+        {/* FormSubmit Configuration Fields */}
+        <input type="hidden" name="_next" value="https://twoframe.hu/kapcsolat?sikeres=1" />
+        <input type="hidden" name="_subject" value={`Új TwoFrame ajánlatkérés – ${formData.name || "Weboldal"}`} />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        {/* Honeypot field for bot protection */}
+        <input type="text" name="_honey" style={{ display: "none" }} />
 
         {/* Global Error Banner */}
         {generalError && (
@@ -271,8 +214,6 @@ export default function InquiryForm() {
               type="text"
               required
               aria-required="true"
-              aria-invalid={!!fieldErrors.name}
-              aria-describedby={fieldErrors.name ? "name-error" : undefined}
               placeholder="Pl. Kovács Péter"
               value={formData.name}
               onChange={handleChange}
@@ -284,7 +225,7 @@ export default function InquiryForm() {
               }`}
             />
             {fieldErrors.name && (
-              <span id="name-error" className="text-xs text-red-400 mt-0.5">
+              <span className="text-xs text-red-400 mt-0.5">
                 {fieldErrors.name}
               </span>
             )}
@@ -305,8 +246,6 @@ export default function InquiryForm() {
               type="email"
               required
               aria-required="true"
-              aria-invalid={!!fieldErrors.email}
-              aria-describedby={fieldErrors.email ? "email-error" : undefined}
               placeholder="peter@pelda.hu"
               value={formData.email}
               onChange={handleChange}
@@ -318,7 +257,7 @@ export default function InquiryForm() {
               }`}
             />
             {fieldErrors.email && (
-              <span id="email-error" className="text-xs text-red-400 mt-0.5">
+              <span className="text-xs text-red-400 mt-0.5">
                 {fieldErrors.email}
               </span>
             )}
@@ -511,8 +450,6 @@ export default function InquiryForm() {
             name="description"
             required
             aria-required="true"
-            aria-invalid={!!fieldErrors.description}
-            aria-describedby={fieldErrors.description ? "desc-error" : undefined}
             rows={5}
             placeholder="Mesélj az elképzelésedről, a céljaidról, a kért formátumokról (fotó, videó, social anyagok)..."
             value={formData.description}
@@ -525,7 +462,7 @@ export default function InquiryForm() {
             }`}
           />
           {fieldErrors.description && (
-            <span id="desc-error" className="text-xs text-red-400 mt-0.5">
+            <span className="text-xs text-red-400 mt-0.5">
               {fieldErrors.description}
             </span>
           )}

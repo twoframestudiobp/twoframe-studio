@@ -66,8 +66,8 @@ export default function HomePage() {
         {/* Full-bleed background image — brighter so photography is visible */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/portfolio/live/IMG_4565.webp"
-            alt="TwoFrame Studio — Koncertfotózás"
+            src="/portfolio/commercial/IMG_4565.webp"
+            alt="TwoFrame Studio — Vizuális Tartalom"
             fill
             priority
             sizes="100vw"
