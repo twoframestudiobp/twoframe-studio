@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getFeaturedProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import ProjectCard from "@/components/ProjectCard";
+import AnimatedHeroLogo from "@/components/AnimatedHeroLogo";
 import { ArrowRight, ArrowUpRight, Sparkles, Users, Camera, Film } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -20,52 +21,60 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* ═══════════════════════════════════════
-          HERO SECTION — Full bleed, minimalist typography
+          HERO SECTION — Two-column layout with Animated TwoFrame Logo
           ═══════════════════════════════════════ */}
-      <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-end px-6 sm:px-8 pb-16 pt-32 max-w-7xl mx-auto w-full">
+      <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-center px-6 sm:px-8 pb-16 pt-32 max-w-7xl mx-auto w-full">
         {/* Ambient subtle glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-violet-600/10 blur-[130px] rounded-full pointer-events-none" />
 
-        <div className="flex flex-col max-w-4xl animate-fade-in">
-          {/* Availability pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-400 text-[11px] font-mono tracking-wider uppercase mb-8 w-max">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Elérhető új projektekre • 2026</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+          {/* Left Column: Headlines & CTA */}
+          <div className="lg:col-span-7 flex flex-col animate-fade-in z-10">
+            {/* Availability pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-zinc-400 text-[11px] font-mono tracking-wider uppercase mb-8 w-max">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Elérhető új projektekre • 2026</span>
+            </div>
+
+            {/* Main Statement Headline */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white tracking-tight leading-[1.08] mb-8">
+              Vizuális tartalom <br />
+              <span className="text-zinc-400 font-normal">előadóknak, eseményeknek</span> <br />
+              és márkáknak.
+            </h1>
+
+            <p className="text-base sm:text-lg text-zinc-400 font-light max-w-xl leading-relaxed mb-10">
+              Koncertfotózás, turnéfilmek, kreatív portrék és márkaépítés.
+              Olyan képkockák, amelyek megőrzik a pillanat nyers energiáját.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/munkak"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white text-zinc-950 hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5"
+              >
+                <span>Munkák megtekintése</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              <Link
+                href="/kapcsolat"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.22em] border border-white/15 text-white hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
+              >
+                <span>Kapcsolatfelvétel</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Main Statement Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white tracking-tight leading-[1.08] mb-8">
-            Vizuális tartalom <br />
-            <span className="text-zinc-400 font-normal">előadóknak, eseményeknek</span> <br />
-            és márkáknak.
-          </h1>
-
-          <p className="text-base sm:text-lg text-zinc-400 font-light max-w-xl leading-relaxed mb-10">
-            Koncertfotózás, turnéfilmek, kreatív portrék és márkaépítés.
-            Olyan képkockák, amelyek megőrzik a pillanat nyers energiáját.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="/munkak"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white text-zinc-950 hover:bg-zinc-200 transition-all duration-300 shadow-lg shadow-white/5"
-            >
-              <span>Munkák megtekintése</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <Link
-              href="/kapcsolat"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-medium uppercase tracking-[0.22em] border border-white/15 text-white hover:bg-white/[0.06] hover:border-white/30 transition-all duration-300"
-            >
-              <span>Kapcsolatfelvétel</span>
-            </Link>
+          {/* Right Column: Animated Dual-Frame Logo */}
+          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end animate-fade-in">
+            <AnimatedHeroLogo />
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2">
           <div className="w-[1px] h-8 bg-gradient-to-b from-transparent via-zinc-500 to-transparent animate-pulse" />
         </div>
       </section>
